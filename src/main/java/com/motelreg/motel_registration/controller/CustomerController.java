@@ -36,4 +36,10 @@ public class CustomerController {
         System.out.println("getting the customer with the id of " + customerId);
         return customerService.getCustomer(customerId);
     }
+
+    @PutMapping("/customers/{customerId}")
+    public Customer updateCustomer(@PathVariable(value = "customerId") Long customerId, @RequestBody Customer customerObject) {
+        System.out.println("updating customer record");
+        return customerService.updateCustomer(customerId, customerObject);
+    }
 }

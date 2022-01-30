@@ -42,4 +42,24 @@ public class CustomerService {
             throw new InformationNotFoundException("customer with the Id " + customerId + " not found");
         }
     }
+
+    public Customer updateCustomer(Long customerId, Customer customerObject) {
+        Optional<Customer> customer = customerRepository.findById(customerId);
+        if (customer.isPresent()) {
+            if (customerObject.getCustomerIdNumber().equals(customer.get().getCustomerIdNumber())) {
+                System.out.println("Matching Id found");
+                throw new InformationExistsException("customer " + customer.get().getCustomerName() + " is already in the system");
+            }else {
+                Customer updateCustomer = customerRepository.findById(customerId).get();
+                updateCustomer.setCustomerName(customerObject.getCustomerName());
+                updateCustomer.setCustomerIdNumber(customerObject.getCustomerIdNumber());
+                updateCustomer.setDateOfBirth(customerObject.getDateOfBirth());
+                updateCustomer.setCustomerAddress(customerObject.getCustomerAddress());
+                return customerRepository.save(updateCustomer);
+
+            }
+        } else {
+            throw new InformationNotFoundException("customer with the Id of " + customerId + "not found");
+        }
+    }
 }
