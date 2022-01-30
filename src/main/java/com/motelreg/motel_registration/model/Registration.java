@@ -1,5 +1,7 @@
 package com.motelreg.motel_registration.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -34,6 +36,21 @@ public class Registration {
 
     @Column
     private Date checkOutDate;
+
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 
     public Registration() {
     }

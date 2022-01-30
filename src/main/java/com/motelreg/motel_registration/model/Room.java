@@ -1,5 +1,7 @@
 package com.motelreg.motel_registration.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,6 +26,22 @@ public class Room {
 
     @Column
     private boolean empty;
+
+
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "registration_id")
+    private Registration registration;
+
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 
     public Room() {
     }

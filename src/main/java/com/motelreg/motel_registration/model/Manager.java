@@ -25,6 +25,15 @@ public class Manager {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Room> roomList;
 
+    @OneToMany(mappedBy = "manager")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Registration> registrationList;
+
+    @OneToMany(mappedBy = "manager")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Customer> customerList;
+
+
     public Manager() {
     }
 
