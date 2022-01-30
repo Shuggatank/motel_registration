@@ -54,7 +54,7 @@ public class RoomService {
                 throw new InformationExistsException("room " + room.get().getRoomNumber() + " is already in the system");
             }else {
                 Room updateRoom = roomRepository.findById(roomId).get();
-//                updateRoom.setRoomNumber(roomObject.getRoomNumber());
+                updateRoom.setRoomNumber(roomObject.getRoomNumber());
                 updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
                 updateRoom.setRate(roomObject.getRate());
                 updateRoom.setClean(roomObject.isClean());
