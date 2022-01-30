@@ -15,7 +15,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     @Autowired
-    public void serCustomerRepository(CustomerRepository customerRepository) {
+    public void setCustomerRepository(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 

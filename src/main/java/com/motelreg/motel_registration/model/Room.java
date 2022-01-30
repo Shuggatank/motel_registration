@@ -13,10 +13,10 @@ public class Room {
     private Long id;
 
     @Column
-    private Long room_number;
+    private Long roomNumber;
 
     @Column
-    private Long number_of_beds;
+    private Long numberOfBeds;
 
     @Column
     private Long rate;
@@ -46,10 +46,10 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, Long room_number, Long number_of_beds, Long rate, boolean clean, boolean empty) {
+    public Room(Long id, Long roomNumber, Long numberOfBeds, Long rate, boolean clean, boolean empty) {
         this.id = id;
-        this.room_number = room_number;
-        this.number_of_beds = number_of_beds;
+        this.roomNumber = roomNumber;
+        this.numberOfBeds = numberOfBeds;
         this.rate = rate;
         this.clean = clean;
         this.empty = empty;
@@ -63,20 +63,20 @@ public class Room {
         this.id = id;
     }
 
-    public Long getRoom_number() {
-        return room_number;
+    public Long getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setRoom_number(Long room_number) {
-        this.room_number = room_number;
+    public void setRoomNumber(Long roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
-    public Long getNumber_of_beds() {
-        return number_of_beds;
+    public Long getNumberOfBeds() {
+        return numberOfBeds;
     }
 
-    public void setNumber_of_beds(Long number_of_beds) {
-        this.number_of_beds = number_of_beds;
+    public void setNumberOfBed(Long numberOfBeds) {
+        this.numberOfBeds = numberOfBeds;
     }
 
     public Long getRate() {
@@ -131,8 +131,8 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "id=" + id +
-                ", room_number=" + room_number +
-                ", number_of_beds=" + number_of_beds +
+                ", room_number=" + roomNumber +
+                ", number_of_beds=" + numberOfBeds +
                 ", rate=" + rate +
                 ", clean=" + clean +
                 ", empty=" + empty +
