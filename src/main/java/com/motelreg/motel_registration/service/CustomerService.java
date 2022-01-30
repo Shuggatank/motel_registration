@@ -34,7 +34,7 @@ public class CustomerService {
         }
     }
 
-    public Optional getCustomer (Long customerId) {
+    public Optional<Customer> getCustomer (Long customerId) {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent()) {
             return customer;
@@ -62,4 +62,16 @@ public class CustomerService {
             throw new InformationNotFoundException("customer with the Id of " + customerId + "not found");
         }
     }
+
+    public Optional<Customer> deleteCustomer(Long customerId) {
+        System.out.println("calling deleteCustomer ===>");
+        Optional<Customer> customer = customerRepository.findById(customerId);
+        if (customer.isPresent()) {
+            customerRepository.deleteById(customerId);
+            return customer;
+        }else{
+            throw new InformationNotFoundException("customer with the Id of " + customerId + " not found");
+        }
+    }
+
 }

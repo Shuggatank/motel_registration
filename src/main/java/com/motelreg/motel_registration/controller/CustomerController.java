@@ -32,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/{customerId}")
-    public Optional getCustomerById (@PathVariable (value = "customerId") Long customerId) {
+    public Optional<Customer> getCustomer(@PathVariable (value = "customerId") Long customerId) {
         System.out.println("getting the customer with the id of " + customerId);
         return customerService.getCustomer(customerId);
     }
@@ -41,5 +41,10 @@ public class CustomerController {
     public Customer updateCustomer(@PathVariable(value = "customerId") Long customerId, @RequestBody Customer customerObject) {
         System.out.println("updating customer record");
         return customerService.updateCustomer(customerId, customerObject);
+    }
+
+    @DeleteMapping("/customers/{customerId}")
+    public Optional<Customer> deleteCustomer (@PathVariable (value = "customerId") Long customerId) {
+        return customerService.deleteCustomer(customerId);
     }
 }
