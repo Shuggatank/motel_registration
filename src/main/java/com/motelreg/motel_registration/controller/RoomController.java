@@ -39,11 +39,11 @@ public class RoomController {
         return roomService.getRoom(roomId);
     }
 
-//    @PutMapping("/rooms/{roomId}")
-//    public Room updateRoom(@PathVariable(value = "roomId") Long roomId, @RequestBody Room roomObject) {
-//        System.out.println("updating room record");
-//        return roomService.updateRoom(roomId, roomObject);
-//    }
+    @PutMapping("/rooms/{roomId}")
+    public Room updateRoom(@PathVariable(value = "roomId") Long roomId, @RequestBody Room roomObject) {
+        System.out.println("updating room record");
+        return roomService.updateRoom(roomId, roomObject);
+    }
 //
 //    @DeleteMapping("/rooms/{roomId}")
 //    public Optional<Room> deleteRoom (@PathVariable (value = "roomId") Long roomId) {

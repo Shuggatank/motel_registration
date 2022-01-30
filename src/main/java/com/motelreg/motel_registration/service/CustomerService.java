@@ -56,7 +56,6 @@ public class CustomerService {
                 updateCustomer.setDateOfBirth(customerObject.getDateOfBirth());
                 updateCustomer.setCustomerAddress(customerObject.getCustomerAddress());
                 return customerRepository.save(updateCustomer);
-
             }
         } else {
             throw new InformationNotFoundException("customer with the Id of " + customerId + "not found");

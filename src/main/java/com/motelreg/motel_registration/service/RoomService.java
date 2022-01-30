@@ -45,4 +45,26 @@ public class RoomService {
             throw new InformationNotFoundException("room with the Id " + roomId + " not found");
         }
     }
+
+    public Room updateRoom(Long roomId, Room roomObject) {
+        Optional<Room> room = roomRepository.findById(roomId);
+        if (room.isPresent()) {
+            if (roomObject.getRoomNumber().equals(room.get().getRoomNumber())) {
+                System.out.println("Matching room number found");
+                throw new InformationExistsException("room " + room.get().getRoomNumber() + " is already in the system");
+            }else {
+                Room updateRoom = roomRepository.findById(roomId).get();
+//                updateRoom.setRoomNumber(roomObject.getRoomNumber());
+                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
+                updateRoom.setRate(roomObject.getRate());
+                updateRoom.setClean(roomObject.isClean());
+                updateRoom.setEmpty(roomObject.isEmpty());
+                return roomRepository.save(updateRoom);
+            }
+        } else {
+            throw new InformationNotFoundException("room with the Id of " + roomId + "not found");
+        }
+    }
+
+
 }

@@ -75,7 +75,7 @@ public class Room {
         return numberOfBeds;
     }
 
-    public void setNumberOfBed(Long numberOfBeds) {
+    public void setNumberOfBeds(Long numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
     }
 
