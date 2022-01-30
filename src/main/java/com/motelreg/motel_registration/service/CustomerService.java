@@ -24,7 +24,7 @@ public class CustomerService {
 
     public Customer createCustomer(Customer customerObject) {
         System.out.println("calling createCustomer");
-        Customer customer = customerRepository.findByCustomerId(customerObject.getCustomerIdNumber());
+        Customer customer = customerRepository.findByCustomerIdNumber(customerObject.getCustomerIdNumber());
         if (customer != null) {
             throw new InformationExistsException("customer with the id " + customer.getCustomerIdNumber() + " already exists");
         } else {

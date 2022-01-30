@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    Customer findByName(String customerName);
+//    Customer findByName(String customerName);
 
-    Customer findByCustomerId(String customerIdNumber);
+    Customer findByCustomerIdNumber(String customerIdNumber);
 }
