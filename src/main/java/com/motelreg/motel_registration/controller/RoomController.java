@@ -28,17 +28,17 @@ public class RoomController {
     }
 
     @PostMapping("/rooms")
-    public Object createRoom(@RequestBody Room roomObject) {
+    public Room createRoom(@RequestBody Room roomObject) {
         System.out.println("creating new room");
         return roomService.createRoom(roomObject);
     }
 
-//    @GetMapping("/rooms/{roomId}")
-//    public Optional<Room> getRoom(@PathVariable (value = "roomId") Long roomId) {
-//        System.out.println("getting the room with the id of " + roomId);
-//        return roomService.getRoom(roomId);
-//    }
-//
+    @GetMapping("/rooms/{roomId}")
+    public Optional<Room> getRoom(@PathVariable (value = "roomId") Long roomId) {
+        System.out.println("getting the room with the id of " + roomId);
+        return roomService.getRoom(roomId);
+    }
+
 //    @PutMapping("/rooms/{roomId}")
 //    public Room updateRoom(@PathVariable(value = "roomId") Long roomId, @RequestBody Room roomObject) {
 //        System.out.println("updating room record");
