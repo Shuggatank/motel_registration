@@ -51,8 +51,6 @@ public class RoomService {
         if (room.isPresent()) {
             if (roomObject.getRoomNumber().equals(room.get().getRoomNumber())) {
                 System.out.println("Matching room number found");
-                throw new InformationExistsException("room " + room.get().getRoomNumber() + " is already in the system");
-            }else {
                 Room updateRoom = roomRepository.findById(roomId).get();
                 updateRoom.setRoomNumber(roomObject.getRoomNumber());
                 updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
@@ -60,11 +58,15 @@ public class RoomService {
                 updateRoom.setClean(roomObject.isClean());
                 updateRoom.setEmpty(roomObject.isEmpty());
                 return roomRepository.save(updateRoom);
+            } else {
+                throw new InformationNotFoundException("Room number " + room.get().getRoomNumber() + " does not exist;");
             }
         } else {
             throw new InformationNotFoundException("room with the Id of " + roomId + "not found");
         }
     }
+
+
 
 
 }
