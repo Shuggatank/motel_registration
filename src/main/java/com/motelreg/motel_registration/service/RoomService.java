@@ -66,7 +66,16 @@ public class RoomService {
         }
     }
 
-
+    public Optional<Room> deleteRoom(Long roomId) {
+        System.out.println("calling deleteRoom ===>");
+        Optional<Room> room = roomRepository.findById(roomId);
+        if (room.isPresent()) {
+            roomRepository.deleteById(roomId);
+            return room;
+        }else{
+            throw new InformationNotFoundException("room with the Id of " + roomId + " not found");
+        }
+    }
 
 
 }
