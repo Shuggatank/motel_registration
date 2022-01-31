@@ -6,7 +6,9 @@ import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.repository.CustomerRepository;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
+import com.motelreg.motel_registration.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -33,6 +35,8 @@ public class RegistrationService {
 
     public Registration createRegistration(Registration registrationObject) {
         System.out.println("calling createRegistration");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
         Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
         if (registration !=null) {
             throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
@@ -48,6 +52,7 @@ public class RegistrationService {
             }
             Customer Id = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
             registrationObject.setCustomer(Id);
+            registrationObject.setManager(userDetails.getManager());
             return registrationRepository.save(registrationObject);
         }
     }
