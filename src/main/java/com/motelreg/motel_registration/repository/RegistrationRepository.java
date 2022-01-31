@@ -9,6 +9,6 @@ public interface RegistrationRepository extends JpaRepository<Registration, Long
 
     Registration findByCustomerIdNumber(String customerIdNumber);
 
-    Registration findByRoomNumber(int roomNumber);
+    Registration findByRoomNumber(Long roomNumber);
 
 }

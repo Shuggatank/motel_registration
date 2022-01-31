@@ -4,8 +4,10 @@ import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
 import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
+import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.CustomerRepository;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
+import com.motelreg.motel_registration.repository.RoomRepository;
 import com.motelreg.motel_registration.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,7 @@ import java.util.*;
 public class RegistrationService {
     private RegistrationRepository registrationRepository;
     private CustomerRepository customerRepository;
+    private RoomRepository roomRepository;
 
     @Autowired
     public void setRegistrationRepository(RegistrationRepository registrationRepository) {
@@ -27,6 +30,12 @@ public class RegistrationService {
     public void setCustomerRepository(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
+
+    @Autowired
+    public void setRoomRepository(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
+
 
     public List<Registration> getAllRegistrations() {
         System.out.println("Calling getAllRegistrations");
@@ -50,14 +59,16 @@ public class RegistrationService {
                 newCustomer.setCustomerAddress(registrationObject.getCustomerAddress());
                 customerRepository.save(newCustomer);
             }
-            Customer Id = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
-            registrationObject.setCustomer(Id);
+            Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+            Optional<Room> roomId = roomRepository.findById(registrationObject.getRoom().getId());
+            registrationObject.setCustomer(customerId);
             registrationObject.setManager(userDetails.getManager());
+            registrationObject.setRoom(roomId);
             return registrationRepository.save(registrationObject);
         }
     }
 
-    public Registration getRegistration (int room) {
+    public Registration getRegistration (Long room) {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration != null) {
             return registration;

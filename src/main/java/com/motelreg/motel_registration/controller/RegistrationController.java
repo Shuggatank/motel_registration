@@ -32,19 +32,19 @@ public class RegistrationController {
     }
 
     @GetMapping("/registrations/{room}")
-    public Registration getRegistration(@PathVariable("room") int room) {
+    public Registration getRegistration(@PathVariable("room") Long room) {
         System.out.println("getting the registration for room " + room);
         return registrationService.getRegistration(room);
     }
 
     @PutMapping("/registrations/{room}")
-    public Registration updateRegistration(@PathVariable("room") int room, @RequestBody Registration registrationObject) {
+    public Registration updateRegistration(@PathVariable("room") Long room, @RequestBody Registration registrationObject) {
         System.out.println("updating registration");
         return registrationService.updateRegistration(room, registrationObject);
     }
 
     @DeleteMapping("/registrations/{room}")
-    public Registration deleteRegistration(@PathVariable("room") int room) {
+    public Registration deleteRegistration(@PathVariable("room") Long room) {
         return registrationService.deleteRegistration(room);
     }
 }

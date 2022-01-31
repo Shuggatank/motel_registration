@@ -30,7 +30,7 @@ public class Registration {
     private Double payment;
 
     @Column
-    private int roomNumber;
+    private Long roomNumber;
 
     @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
@@ -58,7 +58,7 @@ public class Registration {
     public Registration() {
     }
 
-    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, int roomNumber, Date checkInDate, Date checkOutDate) {
+    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, Long roomNumber, Date checkInDate, Date checkOutDate) {
         this.id = id;
         this.customerName = customerName;
         this.customerIdNumber = customerIdNumber;
@@ -118,11 +118,11 @@ public class Registration {
         this.payment = payment;
     }
 
-    public int getRoomNumber() {
+    public Long getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(Long roomNumber) {
         this.roomNumber = roomNumber;
     }
 
