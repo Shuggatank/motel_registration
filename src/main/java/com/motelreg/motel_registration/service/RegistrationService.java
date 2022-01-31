@@ -2,21 +2,28 @@ package com.motelreg.motel_registration.service;
 
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
+import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
+import com.motelreg.motel_registration.repository.CustomerRepository;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RegistrationService {
     private RegistrationRepository registrationRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
     public void setRegistrationRepository(RegistrationRepository registrationRepository) {
         this.registrationRepository = registrationRepository;
+    }
+
+    @Autowired
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     public List<Registration> getAllRegistrations() {
@@ -30,6 +37,15 @@ public class RegistrationService {
         if (registration !=null) {
             throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
         } else {
+            Customer customer = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+            if (customer == null) {
+               Customer newCustomer = new Customer();
+                newCustomer.setCustomerName(registrationObject.getCustomerName());
+                newCustomer.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                newCustomer.setDateOfBirth(registrationObject.getDateOfBirth());
+                newCustomer.setCustomerAddress(registrationObject.getCustomerAddress());
+                customerRepository.save(newCustomer);
+            }
             return registrationRepository.save(registrationObject);
         }
     }

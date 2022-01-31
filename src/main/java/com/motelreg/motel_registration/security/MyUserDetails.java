@@ -30,11 +30,6 @@ public class MyUserDetails implements UserDetails {
         return manager;
     }
 
-//    @Override
-//    public String getName() {
-//        return manager.getName();
-//    }
-
 
     @Override
     public String getPassword() {

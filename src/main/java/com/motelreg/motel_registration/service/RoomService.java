@@ -71,6 +71,7 @@ public class RoomService {
         if (room.isPresent()) {
             if (roomObject.getId().equals(room.get().getId())) {
                 System.out.println("Matching room number found");
+                System.out.println(roomId);
                 Room updateRoom = roomRepository.findById(roomId).get();
                 updateRoom.setRoomNumber(roomObject.getRoomNumber());
                 updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
