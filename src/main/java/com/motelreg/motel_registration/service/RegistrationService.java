@@ -1,5 +1,6 @@
 package com.motelreg.motel_registration.service;
 
+import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,15 @@ public class RegistrationService {
     public List<Registration> getAllRegistrations() {
         System.out.println("Calling getAllRegistrations");
         return registrationRepository.findAll();
+    }
+
+    public Registration createRegistration(Registration registrationObject) {
+        System.out.println("calling createRegistration");
+        Registration registration = registrationRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+        if (registration !=null) {
+            throw new InformationExistsException("Registration with the customer id " + registration.getCustomerIdNumber() + " already exists");
+        } else {
+            return registrationRepository.save(registrationObject);
+        }
     }
 }

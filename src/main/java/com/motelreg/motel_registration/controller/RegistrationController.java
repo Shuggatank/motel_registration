@@ -4,9 +4,7 @@ import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +23,12 @@ public class RegistrationController {
     public List<Registration> getAllRegistrations() {
         System.out.println("calling getAllRegistrations");
         return registrationService.getAllRegistrations();
+    }
+
+    @PostMapping("/registrations")
+    public Registration createRegistration(@RequestBody Registration registrationObject) {
+        System.out.println("creating new registration");
+        return registrationService.createRegistration(registrationObject);
     }
 
 }
