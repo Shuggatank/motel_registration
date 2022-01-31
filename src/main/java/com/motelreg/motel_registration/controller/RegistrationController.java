@@ -1,6 +1,5 @@
 package com.motelreg.motel_registration.controller;
 
-import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +35,11 @@ public class RegistrationController {
     public Registration getRegistration(@PathVariable("room") int room) {
         System.out.println("getting the registration for room " + room);
         return registrationService.getRegistration(room);
+    }
+
+    @PutMapping("/registrations/{room}")
+    public Registration updateRegistration(@PathVariable("room") int room, @RequestBody Registration registrationObject) {
+        System.out.println("updating registration");
+        return registrationService.updateRegistration(room, registrationObject);
     }
 }

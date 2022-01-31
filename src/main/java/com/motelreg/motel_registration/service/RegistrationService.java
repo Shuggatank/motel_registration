@@ -42,4 +42,26 @@ public class RegistrationService {
             throw new InformationNotFoundException("registration belonging to room " + room + " not found");
         }
     }
+
+    public Registration updateRegistration(int room, Registration registrationObject) {
+        Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
+        if (registration !=null) {
+            if (registrationObject.getRoomNumber() == (registration.getRoomNumber())){
+                System.out.println("Matching room number found");
+                registration.setCustomerName(registrationObject.getCustomerName());
+                registration.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                registration.setDateOfBirth(registrationObject.getDateOfBirth());
+                registration.setCustomerAddress(registrationObject.getCustomerAddress());
+                registration.setPayment(registrationObject.getPayment());
+                registration.setRoomNumber(registrationObject.getRoomNumber());
+                registration.setCheckInDate(registrationObject.getCheckInDate());
+                registration.setCheckOutDate(registrationObject.getCheckOutDate());
+                return registrationRepository.save(registration);
+            } else {
+                throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " has no registration");
+            }
+        }else{
+            throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " has no registration");
+        }
+    }
 }
