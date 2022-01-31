@@ -1,5 +1,6 @@
 package com.motelreg.motel_registration.security;
 
+import com.motelreg.motel_registration.service.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
