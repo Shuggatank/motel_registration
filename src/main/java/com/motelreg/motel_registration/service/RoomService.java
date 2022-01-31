@@ -72,13 +72,30 @@ public class RoomService {
             if (roomObject.getId().equals(room.get().getId())) {
                 System.out.println("Matching room number found");
                 System.out.println(roomId);
-                Room updateRoom = roomRepository.findById(roomId).get();
-                updateRoom.setRoomNumber(roomObject.getRoomNumber());
-                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
-                updateRoom.setRate(roomObject.getRate());
-                updateRoom.setClean(roomObject.isClean());
-                updateRoom.setEmpty(roomObject.isEmpty());
-                return roomRepository.save(updateRoom);
+                Room updateRoom = room.get();
+                if (roomObject.getRoomNumber() != null) {
+                    updateRoom.setRoomNumber(roomObject.getRoomNumber());
+                }
+                if (roomObject.getNumberOfBeds() != null) {
+                    updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
+                }
+                if (roomObject.getRate() != null) {
+                    updateRoom.setRate(roomObject.getRate());
+                }
+                if (roomObject.isClean() == false ) {
+                    updateRoom.setClean(roomObject.isClean());
+                }
+                if (roomObject.isEmpty() == false) {
+                    updateRoom.setEmpty(roomObject.isEmpty());
+                }
+//                Room updateRoom = roomRepository.findById(roomId).get();
+//                updateRoom.setRoomNumber(roomObject.getRoomNumber());
+//                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
+//                updateRoom.setRate(roomObject.getRate());
+//                updateRoom.setClean(roomObject.isClean());
+//                updateRoom.setEmpty(roomObject.isEmpty());
+                return (roomObject);
+//                return roomRepository.save(updateRoom);
             } else {
                 throw new InformationNotFoundException("Room number " + room.get().getRoomNumber() + " does not exist;");
             }
