@@ -65,5 +65,15 @@ public class RegistrationService {
         }
     }
 
+    public Registration deleteRegistration(int room) {
+        System.out.println("calling deleteRegistration ===>");
+        Registration registration = registrationRepository.findByRoomNumber(room);
+        if (registration != null) {
+            registrationRepository.deleteByRoomNumber(room);
+            return registration;
+        } else {
+            throw new InformationNotFoundException("Room number " + room + " has no registration");
+        }
+    }
 
 }

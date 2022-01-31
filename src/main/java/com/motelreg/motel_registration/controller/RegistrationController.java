@@ -42,4 +42,9 @@ public class RegistrationController {
         System.out.println("updating registration");
         return registrationService.updateRegistration(room, registrationObject);
     }
+
+    @DeleteMapping("/registrations/{room}")
+    public Registration deleteRegistration(@PathVariable("room") int room) {
+        return registrationService.deleteRegistration(room);
+    }
 }
