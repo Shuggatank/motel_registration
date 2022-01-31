@@ -1,5 +1,6 @@
 package com.motelreg.motel_registration.service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,4 +38,8 @@ public class JWTUtils {
         return extractExpiration(token).before(new Date());
     }
 
+    //Expiry date extraction from Token
+    private Date extractExpiration(String token) {
+        return extractClaims(token, Claims::getExpiration);
+    }
 }
