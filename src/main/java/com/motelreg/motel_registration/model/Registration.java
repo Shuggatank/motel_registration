@@ -32,10 +32,10 @@ public class Registration {
     private int roomNumber;
 
     @Column
-    private Date checkInDate;
+    private String checkInDate;
 
     @Column
-    private Date checkOutDate;
+    private String checkOutDate;
 
     @JsonIgnore
     @OneToOne
@@ -55,7 +55,7 @@ public class Registration {
     public Registration() {
     }
 
-    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, int roomNumber, Date checkInDate, Date checkOutDate) {
+    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, int roomNumber, String checkInDate, String checkOutDate) {
         this.id = id;
         this.customerName = customerName;
         this.customerIdNumber = customerIdNumber;
@@ -123,19 +123,19 @@ public class Registration {
         this.roomNumber = roomNumber;
     }
 
-    public Date getCheckInDate() {
+    public String getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(String checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public String getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(String checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 
