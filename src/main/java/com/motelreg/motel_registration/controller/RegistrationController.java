@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -31,4 +32,9 @@ public class RegistrationController {
         return registrationService.createRegistration(registrationObject);
     }
 
+    @GetMapping("/registrations/{room}")
+    public Registration getRegistration(@PathVariable("room") int room) {
+        System.out.println("getting the registration for room " + room);
+        return registrationService.getRegistration(room);
+    }
 }

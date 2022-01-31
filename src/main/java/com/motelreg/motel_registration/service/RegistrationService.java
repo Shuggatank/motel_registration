@@ -1,12 +1,14 @@
 package com.motelreg.motel_registration.service;
 
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
+import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegistrationService {
@@ -29,6 +31,15 @@ public class RegistrationService {
             throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
         } else {
             return registrationRepository.save(registrationObject);
+        }
+    }
+
+    public Registration getRegistration (int room) {
+        Registration registration = registrationRepository.findByRoomNumber(room);
+        if (registration != null) {
+            return registration;
+        } else {
+            throw new InformationNotFoundException("registration belonging to room " + room + " not found");
         }
     }
 }
