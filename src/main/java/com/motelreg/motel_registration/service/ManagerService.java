@@ -16,10 +16,10 @@ public class ManagerService {
         this.managerRepository = managerRepository;
     }
 
-    public List<Manager> getManagers(){
-        System.out.println("calling getManagers");
-        return managerRepository.findAll();
+    public User
+
+
+    public Manager findManagerByName(String name) {
+        return managerRepository.findManagerByName(name);
     }
-
-
 }
