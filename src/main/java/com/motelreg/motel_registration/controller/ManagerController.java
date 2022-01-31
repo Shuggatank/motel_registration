@@ -17,11 +17,11 @@ public class ManagerController {
 
     private ManagerService managerService;
 
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
-//
-//    @Autowired
-//    private UserDetailsService userDetailsService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Autowired
     public void setManagerService(ManagerService managerService) {
@@ -34,10 +34,10 @@ public class ManagerController {
         return managerService.createManager(managerObject);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> loginManager(@RequestBody LoginRequest loginRequest) {
-//        System.out.println("calling loginManager ==>");
-//        return managerService.loginManager(loginRequest);
-//    }
+    @PostMapping("/login")
+    public ResponseEntity<?> loginManager(@RequestBody LoginRequest loginRequest) {
+        System.out.println("calling loginManager ==>");
+        return managerService.loginManager(loginRequest);
+    }
 
 }
