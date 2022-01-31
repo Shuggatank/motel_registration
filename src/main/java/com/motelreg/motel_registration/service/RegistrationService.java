@@ -46,6 +46,8 @@ public class RegistrationService {
                 newCustomer.setCustomerAddress(registrationObject.getCustomerAddress());
                 customerRepository.save(newCustomer);
             }
+            Customer Id = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+            registrationObject.setCustomer(Id);
             return registrationRepository.save(registrationObject);
         }
     }
