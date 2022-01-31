@@ -80,7 +80,7 @@ public class RegistrationService {
     public Registration updateRegistration(Long room, Registration registrationObject) {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
-            if (registrationObject.getRoomNumber() == (registration.getRoomNumber())){
+            if (Objects.equals(registrationObject.getRoomNumber(), registration.getRoomNumber())){
                 System.out.println("Matching room number found");
                 registration.setCustomerName(registrationObject.getCustomerName());
                 registration.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
