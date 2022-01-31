@@ -20,4 +20,38 @@ public class MyUserDetails implements UserDetails{
     public Collection <? extends GrantedAuthority> getAuthorities() {
         return new HashSet<GrantedAuthority>();
     }
+
+    public Manager getManager() {
+        return manager;
+    }
+
+    @Override
+    public String getName() {
+        return manager.getName();
+    }
+
+    @Override
+    public String getPassword() {
+        return manager.getPassword();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked(){
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
