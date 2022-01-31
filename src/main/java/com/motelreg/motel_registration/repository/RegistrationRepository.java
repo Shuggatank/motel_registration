@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface RegistrationRepository extends JpaRepository<Registration, Long> {
 
     Registration findByCustomerIdNumber(String customerIdNumber);
+
+    Registration findByRoomNumber(int roomNumber);
 }

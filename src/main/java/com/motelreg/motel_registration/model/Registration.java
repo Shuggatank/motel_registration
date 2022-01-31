@@ -1,5 +1,6 @@
 package com.motelreg.motel_registration.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -32,10 +33,12 @@ public class Registration {
     private int roomNumber;
 
     @Column
-    private String checkInDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    private Date checkInDate;
 
     @Column
-    private String checkOutDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    private Date checkOutDate;
 
     @JsonIgnore
     @OneToOne
@@ -55,7 +58,7 @@ public class Registration {
     public Registration() {
     }
 
-    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, int roomNumber, String checkInDate, String checkOutDate) {
+    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, Double payment, int roomNumber, Date checkInDate, Date checkOutDate) {
         this.id = id;
         this.customerName = customerName;
         this.customerIdNumber = customerIdNumber;
@@ -123,19 +126,19 @@ public class Registration {
         this.roomNumber = roomNumber;
     }
 
-    public String getCheckInDate() {
+    public Date getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(String checkInDate) {
+    public void setCheckInDate(Date checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public String getCheckOutDate() {
+    public Date getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(String checkOutDate) {
+    public void setCheckOutDate(Date checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 

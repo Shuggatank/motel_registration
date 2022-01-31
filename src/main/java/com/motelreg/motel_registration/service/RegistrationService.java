@@ -24,9 +24,9 @@ public class RegistrationService {
 
     public Registration createRegistration(Registration registrationObject) {
         System.out.println("calling createRegistration");
-        Registration registration = registrationRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+        Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
         if (registration !=null) {
-            throw new InformationExistsException("Registration with the customer id " + registration.getCustomerIdNumber() + " already exists");
+            throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
         } else {
             return registrationRepository.save(registrationObject);
         }

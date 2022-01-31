@@ -19,7 +19,7 @@ public class Room {
     private Long numberOfBeds;
 
     @Column
-    private Long rate;
+    private Double rate;
 
     @Column
     private boolean clean;
@@ -46,7 +46,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, Long numberOfBeds, Long rate, boolean clean, boolean empty) {
+    public Room(Long id, Long numberOfBeds, Double rate, boolean clean, boolean empty) {
         this.id = id;
         this.numberOfBeds = numberOfBeds;
         this.rate = rate;
@@ -54,7 +54,7 @@ public class Room {
         this.empty = empty;
     }
 
-    public Room(Long id, Long roomNumber, Long numberOfBeds, Long rate, boolean clean, boolean empty) {
+    public Room(Long id, Long roomNumber, Long numberOfBeds, Double rate, boolean clean, boolean empty) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.numberOfBeds = numberOfBeds;
@@ -87,11 +87,11 @@ public class Room {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public Long getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(Long rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 
