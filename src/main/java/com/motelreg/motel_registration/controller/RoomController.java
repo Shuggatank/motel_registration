@@ -5,6 +5,7 @@ package com.motelreg.motel_registration.controller;
 import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,6 +44,12 @@ public class RoomController {
     public Room updateRoom(@PathVariable(value = "roomId") Long roomId, @RequestBody Room roomObject) {
         System.out.println("updating room record");
         return roomService.updateRoom(roomId, roomObject);
+    }
+
+    @PatchMapping("/rooms/{roomId}")
+    public Room updatePartsOfRoom(@PathVariable(value = "roomId") Long roomId, @RequestBody Room roomObject) {
+        System.out.println("updating room parts record");
+        return roomService.updatePartsOfRoom(roomId, roomObject);
     }
 
     @DeleteMapping("/rooms/{roomId}")

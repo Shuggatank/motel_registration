@@ -46,7 +46,8 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long numberOfBeds, Long rate, boolean clean, boolean empty) {
+    public Room(Long id, Long numberOfBeds, Long rate, boolean clean, boolean empty) {
+        this.id = id;
         this.numberOfBeds = numberOfBeds;
         this.rate = rate;
         this.clean = clean;
