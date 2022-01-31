@@ -47,4 +47,11 @@ public class JWTUtils {
     public String extractUsername(String token) {
         return extractClaims(token, Claims::getSubject);
     }
+
+    //Claim Extraction
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+    }
+
+
 }
