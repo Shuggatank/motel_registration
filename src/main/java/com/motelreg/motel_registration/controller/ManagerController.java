@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth/managers")
 public class ManagerController {
 
     private ManagerService managerService;
+
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
 
     @Autowired
     public void setManagerService(ManagerService managerService) {
