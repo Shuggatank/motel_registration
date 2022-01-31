@@ -1,6 +1,10 @@
 package com.motelreg.motel_registration.security;
 
 import com.motelreg.motel_registration.model.Manager;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+import java.util.HashSet;
 
 public class MyUserDetails implements UserDetails{
 
@@ -12,5 +16,8 @@ public class MyUserDetails implements UserDetails{
         this.manager = manager;
     }
 
-
+    @Override
+    public Collection <? extends GrantedAuthority> getAuthorities() {
+        return new HashSet<GrantedAuthority>();
+    }
 }
