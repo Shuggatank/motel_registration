@@ -17,11 +17,11 @@ public class ManagerController {
 
     private ManagerService managerService;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
+//
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     @Autowired
     public void setManagerService(ManagerService managerService) {

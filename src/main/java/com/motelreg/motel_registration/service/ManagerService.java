@@ -18,23 +18,24 @@ import org.springframework.stereotype.Service;
 public class ManagerService {
     private ManagerRepository managerRepository;
 
-    @Autowired
-    public void setManagerRepository(ManagerRepository managerRepository) {
-        this.managerRepository = managerRepository;
-    }
+
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
+//
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
 //    @Autowired
 //    private JWTUtils jwtUtils;
 
+    @Autowired
+    public void setManagerRepository(ManagerRepository managerRepository) {
+        this.managerRepository = managerRepository;
+    }
 
     public Manager createManager(Manager managerObject) {
         System.out.println("service calling createManager ===>");
