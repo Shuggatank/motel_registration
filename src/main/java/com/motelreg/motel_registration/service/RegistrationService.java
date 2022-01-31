@@ -60,7 +60,7 @@ public class RegistrationService {
                 customerRepository.save(newCustomer);
             }
             Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
-            Optional<Room> roomId = roomRepository.findById(registrationObject.getRoom().getId());
+            Room roomId = roomRepository.findByRoomNumber(registrationObject.getRoomNumber());
             registrationObject.setCustomer(customerId);
             registrationObject.setManager(userDetails.getManager());
             registrationObject.setRoom(roomId);
@@ -77,7 +77,7 @@ public class RegistrationService {
         }
     }
 
-    public Registration updateRegistration(int room, Registration registrationObject) {
+    public Registration updateRegistration(Long room, Registration registrationObject) {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
             if (registrationObject.getRoomNumber() == (registration.getRoomNumber())){
@@ -99,7 +99,7 @@ public class RegistrationService {
         }
     }
 
-    public Registration deleteRegistration(int room) {
+    public Registration deleteRegistration(Long room) {
         System.out.println("calling deleteRegistration ===>");
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration != null) {
