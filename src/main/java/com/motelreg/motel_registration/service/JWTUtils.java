@@ -32,4 +32,9 @@ public class JWTUtils {
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
+    //Token Validation for expiry for token expiry
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
 }
