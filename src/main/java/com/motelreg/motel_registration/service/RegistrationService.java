@@ -44,7 +44,7 @@ public class RegistrationService {
     }
 
     public Registration updateRegistration(int room, Registration registrationObject) {
-        Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
+        Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
             if (registrationObject.getRoomNumber() == (registration.getRoomNumber())){
                 System.out.println("Matching room number found");
@@ -61,7 +61,9 @@ public class RegistrationService {
                 throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " has no registration");
             }
         }else{
-            throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " has no registration");
+            throw new InformationNotFoundException("Room number " + room + " has no registration");
         }
     }
+
+
 }
