@@ -1,6 +1,7 @@
 package com.motelreg.motel_registration.controller;
 
 import com.motelreg.motel_registration.model.Manager;
+import com.motelreg.motel_registration.model.Request.LoginRequest;
 import com.motelreg.motel_registration.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +34,10 @@ public class ManagerController {
         return managerService.createManager(managerObject);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> loginManager(@RequestBody LoginRequest loginRequest) {
-        System.out.println("calling loginManager ==>");
-        return managerService.loginManager(loginRequest);
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<?> loginManager(@RequestBody LoginRequest loginRequest) {
+//        System.out.println("calling loginManager ==>");
+//        return managerService.loginManager(loginRequest);
+//    }
 
 }

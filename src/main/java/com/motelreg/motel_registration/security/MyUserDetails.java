@@ -2,11 +2,12 @@ package com.motelreg.motel_registration.security;
 
 import com.motelreg.motel_registration.model.Manager;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.HashSet;
 
-public class MyUserDetails implements UserDetails{
+public class MyUserDetails implements UserDetails {
 
     private Manager manager;
     private String name;
@@ -25,14 +26,19 @@ public class MyUserDetails implements UserDetails{
         return manager;
     }
 
-    @Override
-    public String getName() {
-        return manager.getName();
-    }
+//    @Override
+//    public String getName() {
+//        return manager.getName();
+//    }
 
     @Override
     public String getPassword() {
         return manager.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return manager.getName();
     }
 
     @Override
