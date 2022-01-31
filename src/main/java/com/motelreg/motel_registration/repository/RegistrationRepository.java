@@ -11,5 +11,4 @@ public interface RegistrationRepository extends JpaRepository<Registration, Long
 
     Registration findByRoomNumber(int roomNumber);
 
-    void deleteByRoomNumber(int room);
 }

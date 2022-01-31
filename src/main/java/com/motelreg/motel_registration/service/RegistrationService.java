@@ -69,7 +69,7 @@ public class RegistrationService {
         System.out.println("calling deleteRegistration ===>");
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration != null) {
-            registrationRepository.deleteByRoomNumber(room);
+            registrationRepository.deleteById(registration.getId());
             return registration;
         } else {
             throw new InformationNotFoundException("Room number " + room + " has no registration");
