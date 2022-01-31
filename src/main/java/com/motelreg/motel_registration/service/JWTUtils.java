@@ -42,4 +42,9 @@ public class JWTUtils {
     private Date extractExpiration(String token) {
         return extractClaims(token, Claims::getExpiration);
     }
+
+    //Username extraction from Token
+    public String extractUsername(String token) {
+        return extractClaims(token, Claims::getSubject);
+    }
 }
