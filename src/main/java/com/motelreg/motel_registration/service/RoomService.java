@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 public class RoomService {
-    private RoomRepository roomRepository;
+    private static RoomRepository roomRepository;
 
     @Autowired
     public void setRoomRepository(RoomRepository roomRepository) {
@@ -68,7 +68,7 @@ public class RoomService {
         }
     }
 
-    public Room updatePartsOfRoom(Long roomId, Room roomObject) {
+    public static Room updatePartsOfRoom(Long roomId, Room roomObject) {
         Optional<Room> room = roomRepository.findById(roomId);
         if (room.isPresent()) {
                 System.out.println("Matching room number found");
