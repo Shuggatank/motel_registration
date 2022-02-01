@@ -3,7 +3,6 @@ package com.motelreg.motel_registration.service;
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
 import com.motelreg.motel_registration.model.Customer;
-import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,16 +33,6 @@ public class CustomerService {
             return customerRepository.save(customerObject);
         }
     }
-
-//    public Registration createCustomerFromRegistration(Registration customerObject) {
-//        System.out.println("calling createCustomer");
-//        Customer customer = customerRepository.findByCustomerIdNumber(customerObject.getCustomerIdNumber());
-//        if (customer != null) {
-//            throw new InformationExistsException("customer with the id " + customer.getCustomerIdNumber() + " already exists");
-//        } else {
-//            return customerRepository.save(customerObject);
-//        }
-//    }
 
     public Optional<Customer> getCustomer (Long customerId) {
         Optional<Customer> customer = customerRepository.findById(customerId);
@@ -83,5 +72,4 @@ public class CustomerService {
             throw new InformationNotFoundException("customer with the Id of " + customerId + " not found");
         }
     }
-
 }
