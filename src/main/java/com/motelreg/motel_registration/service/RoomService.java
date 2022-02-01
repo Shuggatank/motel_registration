@@ -16,7 +16,7 @@ public class RoomService {
 
     @Autowired
     public void setRoomRepository(RoomRepository roomRepository) {
-        this.roomRepository = roomRepository;
+        RoomService.roomRepository = roomRepository;
     }
 
     public List<Room> getAllRooms() {
