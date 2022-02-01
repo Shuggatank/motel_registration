@@ -122,7 +122,7 @@ public class RegistrationService {
             if (registrationObject.getPayment() != null) {
                 registration.setPayment(registrationObject.getPayment());
             }
-            if (registration.getRoomNumber() != null) {
+            if (registrationObject.getRoomNumber() != null) {
                 registration.setRoomNumber(registrationObject.getRoomNumber());
             }
             if (registrationObject.getCheckInDate() != null) {
