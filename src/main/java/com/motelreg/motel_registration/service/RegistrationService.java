@@ -62,8 +62,6 @@ public class RegistrationService {
             Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
             Room roomId = roomRepository.findByRoomNumber(registrationObject.getRoomNumber());
             Room notEmpty = new Room();
-            notEmpty.setNumberOfBeds(roomId.getNumberOfBeds());
-            notEmpty.setRate(roomId.getRate());
             notEmpty.setClean(false);
             notEmpty.setEmpty(false);
             RoomService.updatePartsOfRoom(roomId.getId(), notEmpty);

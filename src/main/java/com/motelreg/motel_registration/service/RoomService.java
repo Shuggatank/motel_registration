@@ -75,12 +75,8 @@ public class RoomService {
                 if (roomObject.getRate() != null) {
                     updateRoom.setRate(roomObject.getRate());
                 }
-                if (roomObject.isClean()) {
-                    updateRoom.setClean(roomObject.isClean());
-                }
-                if (roomObject.isEmpty()) {
-                    updateRoom.setEmpty(roomObject.isEmpty());
-                }
+                updateRoom.setClean(roomObject.isClean());
+                updateRoom.setEmpty(roomObject.isEmpty());
                 System.out.println(updateRoom);
                 return roomRepository.save(updateRoom);
         } else {
