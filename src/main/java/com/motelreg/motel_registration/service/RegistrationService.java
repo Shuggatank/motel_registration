@@ -107,14 +107,30 @@ public class RegistrationService {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
             System.out.println("Matching room number found");
-            registration.setCustomerName(registrationObject.getCustomerName());
-            registration.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
-            registration.setDateOfBirth(registrationObject.getDateOfBirth());
-            registration.setCustomerAddress(registrationObject.getCustomerAddress());
-            registration.setPayment(registrationObject.getPayment());
-            registration.setRoomNumber(registrationObject.getRoomNumber());
-            registration.setCheckInDate(registrationObject.getCheckInDate());
-            registration.setCheckOutDate(registrationObject.getCheckOutDate());
+            if (registrationObject.getCustomerName() != null) {
+                registration.setCustomerName(registrationObject.getCustomerName());
+            }
+            if (registrationObject.getCustomerIdNumber() != null) {
+                registration.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+            }
+            if (registrationObject.getDateOfBirth() != null) {
+                registration.setDateOfBirth(registrationObject.getDateOfBirth());
+            }
+            if (registrationObject.getCustomerAddress() != null) {
+                registration.setCustomerAddress(registrationObject.getCustomerAddress());
+            }
+            if (registrationObject.getPayment() != null) {
+                registration.setPayment(registrationObject.getPayment());
+            }
+            if (registration.getRoomNumber() != null) {
+                registration.setRoomNumber(registrationObject.getRoomNumber());
+            }
+            if (registrationObject.getCheckInDate() != null) {
+                registration.setCheckInDate(registrationObject.getCheckInDate());
+            }
+            if (registrationObject.getCheckOutDate() != null) {
+                registration.setCheckOutDate(registrationObject.getCheckOutDate());
+            }
             return registrationRepository.save(registration);
         }else{
             throw new InformationNotFoundException("Room number " + room + " has no registration");
