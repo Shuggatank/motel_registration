@@ -105,6 +105,24 @@ public class RegistrationService {
         }
     }
 
+    public Registration updatePartsOfRegistration(Long room, Registration registrationObject) {
+        Registration registration = registrationRepository.findByRoomNumber(room);
+        if (registration !=null) {
+            System.out.println("Matching room number found");
+            registration.setCustomerName(registrationObject.getCustomerName());
+            registration.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+            registration.setDateOfBirth(registrationObject.getDateOfBirth());
+            registration.setCustomerAddress(registrationObject.getCustomerAddress());
+            registration.setPayment(registrationObject.getPayment());
+            registration.setRoomNumber(registrationObject.getRoomNumber());
+            registration.setCheckInDate(registrationObject.getCheckInDate());
+            registration.setCheckOutDate(registrationObject.getCheckOutDate());
+            return registrationRepository.save(registration);
+        }else{
+            throw new InformationNotFoundException("Room number " + room + " has no registration");
+        }
+    }
+
     public Registration deleteRegistration(Long room) {
         System.out.println("calling deleteRegistration ===>");
         Registration registration = registrationRepository.findByRoomNumber(room);

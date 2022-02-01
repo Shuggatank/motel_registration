@@ -43,6 +43,12 @@ public class RegistrationController {
         return registrationService.updateRegistration(room, registrationObject);
     }
 
+    @PatchMapping("/registrations/{room}")
+    public Registration updatePartsOfRegistration(@PathVariable("room") Long room, @RequestBody Registration registrationObject) {
+        System.out.println("updating registration");
+        return registrationService.updatePartsOfRegistration(room, registrationObject);
+    }
+
     @DeleteMapping("/registrations/{room}")
     public Registration deleteRegistration(@PathVariable("room") Long room) {
         return registrationService.deleteRegistration(room);

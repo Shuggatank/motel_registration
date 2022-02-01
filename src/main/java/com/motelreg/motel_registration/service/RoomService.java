@@ -69,10 +69,18 @@ public class RoomService {
                 System.out.println("Matching room number found");
                 System.out.println(roomId);
                 Room updateRoom = room.get();
-                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
-                updateRoom.setRate(roomObject.getRate());
-                updateRoom.setClean(roomObject.isClean());
-                updateRoom.setEmpty(roomObject.isEmpty());
+                if (roomObject.getNumberOfBeds() != null) {
+                    updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
+                }
+                if (roomObject.getRate() != null) {
+                    updateRoom.setRate(roomObject.getRate());
+                }
+                if (roomObject.isClean()) {
+                    updateRoom.setClean(roomObject.isClean());
+                }
+                if (roomObject.isEmpty()) {
+                    updateRoom.setEmpty(roomObject.isEmpty());
+                }
                 System.out.println(updateRoom);
                 return roomRepository.save(updateRoom);
         } else {
