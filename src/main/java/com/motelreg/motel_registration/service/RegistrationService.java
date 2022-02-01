@@ -2,6 +2,7 @@ package com.motelreg.motel_registration.service;
 
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
+import com.motelreg.motel_registration.exceptions.NotReady;
 import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
 import com.motelreg.motel_registration.model.Room;
@@ -47,28 +48,33 @@ public class RegistrationService {
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
         Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
+        Room roomId = roomRepository.findByRoomNumber(registrationObject.getRoomNumber());
+        System.out.println(roomId);
         if (registration !=null) {
             throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
         } else {
-            Customer customer = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
-            if (customer == null) {
-               Customer newCustomer = new Customer();
-                newCustomer.setCustomerName(registrationObject.getCustomerName());
-                newCustomer.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
-                newCustomer.setDateOfBirth(registrationObject.getDateOfBirth());
-                newCustomer.setCustomerAddress(registrationObject.getCustomerAddress());
-                customerRepository.save(newCustomer);
+            if (roomId.isClean() && roomId.isEmpty()) {
+                Customer customer = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                if (customer == null) {
+                    Customer newCustomer = new Customer();
+                    newCustomer.setCustomerName(registrationObject.getCustomerName());
+                    newCustomer.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                    newCustomer.setDateOfBirth(registrationObject.getDateOfBirth());
+                    newCustomer.setCustomerAddress(registrationObject.getCustomerAddress());
+                    customerRepository.save(newCustomer);
+                }
+                Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                Room notEmpty = new Room();
+                notEmpty.setClean(false);
+                notEmpty.setEmpty(false);
+                RoomService.updatePartsOfRoom(roomId.getId(), notEmpty);
+                registrationObject.setCustomer(customerId);
+                registrationObject.setManager(userDetails.getManager());
+                registrationObject.setRoom(roomId);
+                return registrationRepository.save(registrationObject);
+            } else {
+                throw new NotReady("Room " + roomId.getRoomNumber() + " is not ready to be rented");
             }
-            Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
-            Room roomId = roomRepository.findByRoomNumber(registrationObject.getRoomNumber());
-            Room notEmpty = new Room();
-            notEmpty.setClean(false);
-            notEmpty.setEmpty(false);
-            RoomService.updatePartsOfRoom(roomId.getId(), notEmpty);
-            registrationObject.setCustomer(customerId);
-            registrationObject.setManager(userDetails.getManager());
-            registrationObject.setRoom(roomId);
-            return registrationRepository.save(registrationObject);
         }
     }
 
