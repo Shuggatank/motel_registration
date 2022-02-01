@@ -7,6 +7,8 @@ import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -69,38 +71,17 @@ public class RoomService {
     public Room updatePartsOfRoom(Long roomId, Room roomObject) {
         Optional<Room> room = roomRepository.findById(roomId);
         if (room.isPresent()) {
-            if (roomObject.getId().equals(room.get().getId())) {
                 System.out.println("Matching room number found");
                 System.out.println(roomId);
                 Room updateRoom = room.get();
-                if (roomObject.getRoomNumber() != null) {
-                    updateRoom.setRoomNumber(roomObject.getRoomNumber());
-                }
-                if (roomObject.getNumberOfBeds() != null) {
-                    updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
-                }
-                if (roomObject.getRate() != null) {
-                    updateRoom.setRate(roomObject.getRate());
-                }
-                if (roomObject.isClean() == false ) {
-                    updateRoom.setClean(roomObject.isClean());
-                }
-                if (roomObject.isEmpty() == false) {
-                    updateRoom.setEmpty(roomObject.isEmpty());
-                }
-//                Room updateRoom = roomRepository.findById(roomId).get();
-//                updateRoom.setRoomNumber(roomObject.getRoomNumber());
-//                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
-//                updateRoom.setRate(roomObject.getRate());
-//                updateRoom.setClean(roomObject.isClean());
-//                updateRoom.setEmpty(roomObject.isEmpty());
-                return (roomObject);
-//                return roomRepository.save(updateRoom);
-            } else {
-                throw new InformationNotFoundException("Room number " + room.get().getRoomNumber() + " does not exist;");
-            }
+                updateRoom.setNumberOfBeds(roomObject.getNumberOfBeds());
+                updateRoom.setRate(roomObject.getRate());
+                updateRoom.setClean(roomObject.isClean());
+                updateRoom.setEmpty(roomObject.isEmpty());
+                System.out.println(updateRoom);
+                return roomRepository.save(updateRoom);
         } else {
-            throw new InformationNotFoundException("room with the Id of " + roomId + "not found");
+            throw new InformationNotFoundException("room with the Id of " + roomId + " not found");
         }
     }
 
