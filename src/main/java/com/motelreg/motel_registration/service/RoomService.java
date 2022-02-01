@@ -1,16 +1,11 @@
 package com.motelreg.motel_registration.service;
 
-
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
-import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -95,6 +90,4 @@ public class RoomService {
             throw new InformationNotFoundException("room with the Id of " + roomId + " not found");
         }
     }
-
-
 }

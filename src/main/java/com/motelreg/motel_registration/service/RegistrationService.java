@@ -1,5 +1,6 @@
 package com.motelreg.motel_registration.service;
 
+import com.motelreg.motel_registration.controller.RoomController;
 import com.motelreg.motel_registration.exceptions.InformationExistsException;
 import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
 import com.motelreg.motel_registration.model.Customer;
