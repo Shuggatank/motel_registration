@@ -5,8 +5,10 @@ import com.motelreg.motel_registration.exceptions.InformationNotFoundException;
 import com.motelreg.motel_registration.exceptions.NotReady;
 import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.model.Registration;
+import com.motelreg.motel_registration.model.RegistrationHistory;
 import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.CustomerRepository;
+import com.motelreg.motel_registration.repository.RegistrationHistoryRepository;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
 import com.motelreg.motel_registration.repository.RoomRepository;
 import com.motelreg.motel_registration.security.MyUserDetails;
@@ -21,6 +23,7 @@ public class RegistrationService {
     private RegistrationRepository registrationRepository;
     private CustomerRepository customerRepository;
     private RoomRepository roomRepository;
+    private RegistrationHistoryRepository registrationHistoryRepository;
 
     @Autowired
     public void setRegistrationRepository(RegistrationRepository registrationRepository) {
@@ -36,6 +39,12 @@ public class RegistrationService {
     public void setRoomRepository(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
     }
+
+    @Autowired
+    public void setRegistrationHistoryRepository(RegistrationHistoryRepository registrationHistoryRepository) {
+        this.registrationHistoryRepository = registrationHistoryRepository;
+    }
+
 
 
     public List<Registration> getAllRegistrations() {
@@ -72,6 +81,21 @@ public class RegistrationService {
                     registrationObject.setCustomer(customerId);
                     registrationObject.setManager(userDetails.getManager());
                     registrationObject.setRoom(roomId);
+
+                    RegistrationHistory saveHistory = new RegistrationHistory();
+                    saveHistory.setCustomerName(registrationObject.getCustomerName());
+                    saveHistory.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
+                    saveHistory.setDateOfBirth(registrationObject.getDateOfBirth());
+                    saveHistory.setCustomerAddress(registrationObject.getCustomerAddress());
+                    saveHistory.setPayment(registrationObject.getPayment());
+                    saveHistory.setRoomNumber(registrationObject.getRoomNumber());
+                    saveHistory.setCheckInDate(registrationObject.getCheckInDate());
+                    saveHistory.setCheckOutDate(registrationObject.getCheckOutDate());
+                    saveHistory.setCustomer(customerId);
+                    saveHistory.setManager(userDetails.getManager());
+                    saveHistory.setRoom(roomId);
+
+                    registrationHistoryRepository.save(saveHistory);
                     return registrationRepository.save(registrationObject);
                 } else {
                     throw new NotReady("Room " + roomId.getRoomNumber() + " is not ready to be rented");
@@ -85,6 +109,7 @@ public class RegistrationService {
     public Registration getRegistration (Long room) {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration != null) {
+            System.out.println(registration);
             return registration;
         } else {
             throw new InformationNotFoundException("registration belonging to room " + room + " not found");
