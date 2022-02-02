@@ -73,6 +73,9 @@ public class RegistrationHistory {
         this.manager = manager;
     }
 
+    public RegistrationHistory(Object id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, double payment, long roomNumber, int checkInDate, int checkOutDate) {
+    }
+
     public Long getId() {
         return id;
     }
