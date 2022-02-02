@@ -33,6 +33,4 @@ public class CustomerRepositoryTest {
         Optional<Customer> test = customerRepository.findByCustomerName("Test Joe");
         assertThat(test).isNotEmpty();
     }
-
-
 }
