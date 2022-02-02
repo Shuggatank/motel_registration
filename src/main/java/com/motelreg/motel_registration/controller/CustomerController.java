@@ -48,6 +48,12 @@ public class CustomerController {
         return customerService.updateCustomer(customerId, customerObject);
     }
 
+    @PatchMapping("/customers/{customerId}")
+    public Customer updatePartsCustomer(@PathVariable(value = "customerId") Long customerId, @RequestBody Customer customerObject) {
+        System.out.println("updating customer record");
+        return customerService.updatePartsCustomer(customerId, customerObject);
+    }
+
     @DeleteMapping("/customers/{customerId}")
     public Optional<Customer> deleteCustomer (@PathVariable (value = "customerId") Long customerId) {
         return customerService.deleteCustomer(customerId);

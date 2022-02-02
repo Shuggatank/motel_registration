@@ -6,6 +6,7 @@ import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,21 +47,39 @@ public class CustomerService {
     public Customer updateCustomer(Long customerId, Customer customerObject) {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent()) {
-            if (customerObject.getCustomerIdNumber().equals(customer.get().getCustomerIdNumber())) {
-                System.out.println("Matching Id found");
-                throw new InformationExistsException("customer " + customer.get().getCustomerName() + " is already in the system");
-            }else {
                 Customer updateCustomer = customerRepository.findById(customerId).get();
                 updateCustomer.setCustomerName(customerObject.getCustomerName());
                 updateCustomer.setCustomerIdNumber(customerObject.getCustomerIdNumber());
                 updateCustomer.setDateOfBirth(customerObject.getDateOfBirth());
                 updateCustomer.setCustomerAddress(customerObject.getCustomerAddress());
                 return customerRepository.save(updateCustomer);
-            }
         } else {
             throw new InformationNotFoundException("customer with the Id of " + customerId + "not found");
         }
     }
+
+    public Customer updatePartsCustomer(Long customerId, Customer customerObject){
+        Optional<Customer> customer = customerRepository.findById(customerId);
+        if (customer.isPresent()) {
+            Customer updateCustomer = customerRepository.findById(customerId).get();
+            if (customerObject.getCustomerName() != null) {
+                updateCustomer.setCustomerName(customerObject.getCustomerName());
+            }
+            if (customerObject.getCustomerIdNumber() != null) {
+                updateCustomer.setCustomerIdNumber(customerObject.getCustomerIdNumber());
+            }
+            if (customerObject.getDateOfBirth() != null) {
+                updateCustomer.setDateOfBirth(customerObject.getDateOfBirth());
+            }
+            if (customerObject.getCustomerAddress() != null) {
+                updateCustomer.setCustomerAddress(customerObject.getCustomerAddress());
+            }
+            return customerRepository.save(updateCustomer);
+        } else {
+            throw new InformationNotFoundException("customer with the Id of " + customerId + "not found");
+        }
+    }
+
 
     public Optional<Customer> deleteCustomer(Long customerId) {
         System.out.println("calling deleteCustomer ===>");

@@ -30,19 +30,31 @@
 
 
 
-| Request Type | URL                                           | Request Body                                                                                                      | Request Header            |
-|--------------|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------|---------------------------|
-| POST         | /auth/managers/register                       | name, password                                                                                                    |                     |
-| POST         | /auth/managers/login                          | name, password                                                                                                    |                        |
-| GET          | /api/registrations                            |                                                                                                                   | Authorization Bearer TOKEN |
-| GET          | /api/registrations/{room}                     |                                                                                                                   | Authorization Bearer TOKEN |
-| POST         | /api/registrations                            | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
-| PUT          | /api/registrations/{room}                     | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
-| PATCH        | /api/registrations/{room}                     | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
-| DELETE       | /api/registrations/{room}                     |                                                                                                                   |    Authorization Bearer TOKEN                       |
-| GET          | /api/rooms                                    |                                                                                                                   |                           |
-| GET          | /api/rooms/{roomId}                           |                                                                                                                   |                           |
-| POST         |  /api/rooms                                   | roomNumber, numberOfBeds, rate, clean, empty                                                                      |                           |
-| PUT          | /api/rooms/{roomId}                           | roomNumber, numberOfBeds, rate, clean, empty                                                                                                                     |                           |
-| PATCH        | /api/rooms/{roomId}                           | roomNumber, numberOfBeds, rate, clean, empty                                                                                                                     |                           |
-| DELETE       | /api/rooms/{roomId}                           |                                                                                                                   |                           |
+| Request Type | URL                                 | Request Body                                                                                                      | Request Header            |
+|--------------|:------------------------------------|:------------------------------------------------------------------------------------------------------------------|---------------------------|
+| POST         | /auth/managers/register             | name, password                                                                                                    |                     |
+| POST         | /auth/managers/login                | name, password                                                                                                    |                        |
+| GET          | /api/registrations                  |                                                                                                                   | Authorization Bearer TOKEN |
+| GET          | /api/registrations/{room}           |                                                                                                                   | Authorization Bearer TOKEN |
+| POST         | /api/registrations                  | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
+| PUT          | /api/registrations/{room}           | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
+| PATCH        | /api/registrations/{room}           | customerName, customerIdNumber, dateOfBirth, customerAddress, <br/>payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
+| DELETE       | /api/registrations/{room}           |                                                                                                                   |    Authorization Bearer TOKEN                       |
+| GET          | /api/rooms                          |                                                                                                                   |                           |
+| GET          | /api/rooms/{roomId}                 |                                                                                                                   |                           |
+| POST         | /api/rooms                          | roomNumber, numberOfBeds, rate, clean, empty                                                                      |                           |
+| PUT          | /api/rooms/{roomId}                 | roomNumber, numberOfBeds, rate, clean, empty                                                                                                                     |                           |
+| PATCH        | /api/rooms/{roomId}                 | roomNumber, numberOfBeds, rate, clean, empty                                                                                                                     |                           |
+| DELETE       | /api/rooms/{roomId}                 |                                                                                                                   |                           |
+| GET          | /api/customers                      |                                                                                                                   |                           |
+| GET          | /api/customers/{customerId}         |                                                                                                                   |                           |
+| POST         |        /api/customers                              |                                                                                                                   |                           |
+| PUT          | /api/customers/{customerId}                                     |                                                                                                                   |                           |
+| PATCH        | /api/customers/{customerId}                                     |                                                                                                                   |                           |
+| DELETE       | /api/customers/{customerId}                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
+|              |                                     |                                                                                                                   |                           |
