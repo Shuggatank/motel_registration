@@ -70,6 +70,9 @@ public class Registration {
         this.checkOutDate = checkOutDate;
     }
 
+    public Registration(Long id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, double payment, long roomNumber, int i, int i1) {
+    }
+
     public Long getId() {
         return id;
     }

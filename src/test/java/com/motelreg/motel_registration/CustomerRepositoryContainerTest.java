@@ -13,15 +13,15 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
-@Testcontainers
+//@Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class CustomerRepositoryContainerTest {
+public class CustomerRepositoryContainerTest extends BaseContainerTest {
 
-        @Container
-        PostgreSQLContainer postgresContainer = new PostgreSQLContainer("postgres:latest")
-                .withDatabaseName("spring-project-test-db")
-                .withUsername("postgres")
-                .withPassword("postgres");
+//        @Container
+//        PostgreSQLContainer postgresContainer = new PostgreSQLContainer("postgres:latest")
+//                .withDatabaseName("spring-project-test-db")
+//                .withUsername("postgres")
+//                .withPassword("postgres");
         @Autowired
         private CustomerRepository customerRepository;
 
