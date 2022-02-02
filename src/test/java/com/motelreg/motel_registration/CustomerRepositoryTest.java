@@ -21,11 +21,12 @@ public class CustomerRepositoryTest {
     private CustomerRepository customerRepository;
 
     @Test
-    public void shouldSaveCustomer() {
+    public void shouldSaveCustomerLocal() {
         Customer customer = new Customer(null, "Test Customer", "D35TEST", "12/12/2022", "421 Test Street");
         Customer savedCustomer = customerRepository.save(customer);
         assertThat(savedCustomer).usingRecursiveComparison().ignoringFields("customerId").isEqualTo(customer);
     }
+
 
     @Test
     @Sql("classpath:test-customer-data.sql")
