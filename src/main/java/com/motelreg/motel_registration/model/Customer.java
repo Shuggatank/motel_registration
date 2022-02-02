@@ -25,20 +25,6 @@ public class Customer {
     @Column
     private String customerAddress;
 
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "registration_id")
-    private Registration registration;
-
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
 
     public Customer() {
     }
@@ -91,29 +77,6 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public Registration getRegistration() {
-        return registration;
-    }
-
-    public void setRegistration(Registration registration) {
-        this.registration = registration;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
 
     @Override
     public String toString() {

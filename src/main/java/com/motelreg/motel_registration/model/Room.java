@@ -28,21 +28,6 @@ public class Room {
     private boolean empty;
 
 
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "registration_id")
-    private Registration registration;
-
-    @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
-
     public Room() {
     }
 
@@ -111,29 +96,6 @@ public class Room {
         this.empty = empty;
     }
 
-    public Registration getRegistration() {
-        return registration;
-    }
-
-    public void setRegistration(Registration registration) {
-        this.registration = registration;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
 
     @Override
     public String toString() {

@@ -22,17 +22,11 @@ public class Manager {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @OneToMany(mappedBy = "manager")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Room> roomList;
 
     @OneToMany(mappedBy = "manager")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Registration> registrationList;
 
-    @OneToMany(mappedBy = "manager")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Customer> customerList;
 
 
     public Manager() {
@@ -68,13 +62,6 @@ public class Manager {
         this.password = password;
     }
 
-    public List<Room> getRoomList() {
-        return roomList;
-    }
-
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
-    }
 
     public List<Registration> getRegistrationList() {
         return registrationList;
@@ -84,13 +71,6 @@ public class Manager {
         this.registrationList = registrationList;
     }
 
-    public List<Customer> getCustomerList() {
-        return customerList;
-    }
-
-    public void setCustomerList(List<Customer> customerList) {
-        this.customerList = customerList;
-    }
 
     @Override
     public String toString() {
