@@ -1,9 +1,7 @@
-package com.motelreg.motel_registration;
+package com.motelreg.motel_registration.containertests;
 
 import com.motelreg.motel_registration.model.Manager;
-import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.ManagerRepository;
-import com.motelreg.motel_registration.repository.RoomRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

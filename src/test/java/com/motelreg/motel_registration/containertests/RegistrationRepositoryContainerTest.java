@@ -1,15 +1,11 @@
-package com.motelreg.motel_registration;
+package com.motelreg.motel_registration.containertests;
 
 import com.motelreg.motel_registration.model.Registration;
-import com.motelreg.motel_registration.model.Room;
 import com.motelreg.motel_registration.repository.RegistrationRepository;
-import com.motelreg.motel_registration.repository.RoomRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-import java.util.Date;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

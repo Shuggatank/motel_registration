@@ -1,4 +1,4 @@
-package com.motelreg.motel_registration;
+package com.motelreg.motel_registration.containertests;
 
 import org.testcontainers.containers.PostgreSQLContainer;
 
