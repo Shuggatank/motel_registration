@@ -17,7 +17,7 @@ public class RoomRepositoryTest {
     private RoomRepository roomRepository;
 
     @Test
-    public void shouldSaveManagerLocal() {
+    public void shouldSaveRoomLocal() {
         Room room = new Room(null, 4L, 2L, 55.00, true, true );
         Room savedRoom = roomRepository.save(room);
         assertThat(savedRoom).usingRecursiveComparison().ignoringFields("id").isEqualTo(room);
