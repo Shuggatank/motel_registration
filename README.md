@@ -39,9 +39,9 @@
 | Postman         | testcontainers               |
 | Lucid App       | Duck Duck Go                 |
 | Json Web Tokens | Docker                       |
-<img alt="Spring-Boot" height="50" src="images/spring-boot-logo.png"/>
-<img alt="IntelliJ-idea" height="50" src="images/intellij-idea-logo.png"/>
-<img alt="Java" height="50" src="images/java-logo.png"/>
+<img alt="Spring-Boot" height="50" src="images/spring-boot-logo.png"/> <img alt="IntelliJ-idea" height="50" src="images/intellij-idea-logo.png"/> <img alt="Java" height="50" src="images/java-logo.png"/>
+
+
 <img alt="PostgreSQL" height="50" src="images/postgresql-logo.png"/>
 <img alt="Postman" height="50" src="images/postman-logo.png"/>
 <img alt="testcontainers" height="50" src="images/testcontainers.png"/>
