@@ -81,12 +81,26 @@
 | GET          | /api/registration_history                  |                                                                                                              | Authorization Bearer TOKEN |
 | GET          | /api/registration_history/{registrationId} |                                                                                                              | Authorization Bearer TOKEN |
 | PATCH        | /api/registration_history/{registrationId} | customerName, customerIdNumber, dateOfBirth, customerAddress, payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
-----
+
+
+
+
+
+##Installation
+
+
+
+- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
+- Update application-dev.properties with your username and password.
+- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file into Postman to get all endpoints.
+- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
+
 
 ##Project Structure
 
 
-```├── HELP.md
+```
+├── HELP.md
 ├── images
 │   ├── docker-logo.png
 │   ├── duckduckgo-logo.png
@@ -244,16 +258,4 @@
                     ├── RegistrationHistoryRepositoryTest.class
                     ├── RegistrationRepositoryTest.class
                     └── RoomRepositoryTest.class
-
  ```
-----
-
-##Installation
-
-
-
-- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
-- Update application-dev.properties with your username and password.
-- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file into Postman to get all endpoints.
-- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
-
