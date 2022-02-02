@@ -66,4 +66,15 @@ public class RegistrationHistoryService {
             throw new InformationNotFoundException("Registration with the Id of " + registrationId + " not found");
         }
     }
+
+    public Optional<RegistrationHistory> deleteRegistrationFromHistory(Long registrationId) {
+        System.out.println("calling deleteRegistrationFromHistory");
+        Optional<RegistrationHistory> registrationHistory = registrationHistoryRepository.findById(registrationId);
+        if(registrationHistory.isPresent()) {
+            registrationHistoryRepository.deleteById(registrationId);
+            return registrationHistory;
+        } else {
+            throw new InformationNotFoundException("Registration with the Id of " + registrationId + " not found");
+        }
+    }
 }

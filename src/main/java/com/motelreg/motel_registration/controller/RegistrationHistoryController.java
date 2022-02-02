@@ -37,4 +37,9 @@ public class RegistrationHistoryController {
         System.out.println("Updating registration history");
         return registrationHistoryService.updateRegistrationInHistory(registrationId, registrationHistoryObject);
     }
+
+    @DeleteMapping("/registration_history/{registrationId}")
+    public Optional<RegistrationHistory>  deleteRegistrationFromHistory(@PathVariable("registrationId") Long registrationId) {
+        return registrationHistoryService.deleteRegistrationFromHistory(registrationId);
+    }
 }
