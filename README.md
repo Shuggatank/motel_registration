@@ -2,7 +2,6 @@
 
 ## User Stories
 
----
    - [x] As a manager I would like to create a new customer through registration
    - [x] As a manager I would like to be able to login
    - [x] As a manager I would like to check on the status of each room
@@ -22,7 +21,6 @@
 
 ## Entity Relationship Diagram (ERD)
 
----
 
 ### Initial ERD
 <img alt="Original ERD Diagram" width="65%" src="images/ERD - Page 1.png"/>
@@ -57,8 +55,6 @@
 
 ## Endpoints
 
-----
-
 
 | Request Type | URL                                        | Request Body                                                                                                 | Request Header             |
 |--------------|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------|----------------------------|
@@ -85,7 +81,7 @@
 | GET          | /api/registration_history                  |                                                                                                              | Authorization Bearer TOKEN |
 | GET          | /api/registration_history/{registrationId} |                                                                                                              | Authorization Bearer TOKEN |
 | PATCH        | /api/registration_history/{registrationId} | customerName, customerIdNumber, dateOfBirth, customerAddress, payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
-
+----
 
 ##Project Structure
 
@@ -250,7 +246,7 @@
                     └── RoomRepositoryTest.class
 
  ```
-<br></br>
+----
 
 ##Installation
 
