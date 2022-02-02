@@ -5,14 +5,14 @@
 ---
    - [x] As a manager I would like to create a new customer through registration
    - [x] As a manager I would like to be able to login
-   - [ ] As a manager I would like to check customer history
    - [x] As a manager I would like to check on the status of each room
    - [x] As a manager I would like to be able to update customer information
    - [x] As a manager I would like to view daily reports
    - [x] As a manager I would like to view monthly reports
    - [x] As a manager I would like to assign the customer a room
-   - [ ] As a manager I would like to choose different payment type (cash or credit card)
    - [x] As a manager I would to assign a customer a check in and check out date
+   - [ ] As a manager I would like to check customer history
+   - [ ] As a manager I would like to choose different payment type (cash or credit card)
 
 
    - [ ] As an admin I would full access to the system
@@ -89,7 +89,7 @@
 
 ##Project Structure
 
------
+
 ```├── HELP.md
 ├── images
 │   ├── docker-logo.png
@@ -254,7 +254,7 @@
 
 ##Installation
 
--------
+
 
 - Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
 - Update application-dev.properties with your username and password.
