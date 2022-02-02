@@ -86,7 +86,7 @@
 
 
 
-##Installation
+## Installation
 
 
 
@@ -96,7 +96,7 @@
 - For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
 
 
-##Project Structure
+## Project Structure
 
 
 ```
