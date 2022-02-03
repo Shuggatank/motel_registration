@@ -7,7 +7,7 @@
 * [Installation](#Installation)
 * [Tools Used](#Tools%20Used)
 * [API Endpoints](#Endpoints)
-* [Project File Structure](#Project%20Structure)
+* [Project File Structure](#Project-Structure)
 
 
 
