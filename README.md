@@ -1,9 +1,26 @@
+<h1 align="center"> Motel Registration API</h1>
+<h3 align="center"> A simple api for registering guest created with SpringBoot, PostgreSQL, and Java.</h3>
+
+## Table of Contents
+* [User Stories](#User Stories)
+* [Entity Relationship Diagram (ERD)](#Entity Relationship Diagram (ERD))
+* [Tools Used](#System Tools Used)
+* [API Endpoints](#Endpoints)
+* [Installation](#Installation)
+* [Project File Structure](#Project Structure)
+
+
+
+This project involved using IntellJ to develop a REST API for a motel/hotel registration database.
+The API allows managers to check in customers into the system. The manager has full control over registration, customer records, and room records.
+
+
 
 
 ## User Stories
 
    - [x] As a manager I would like to create a new customer through registration
-   - [x] As a manager I would like to be able to login
+   - [x] As a manager I would like to be able to log in
    - [x] As a manager I would like to check on the status of each room
    - [x] As a manager I would like to be able to update customer information
    - [x] As a manager I would like to view daily reports
@@ -31,25 +48,23 @@
 
 ## System Tools Used
 
-|                 |                              |
-|-----------------|:-----------------------------|
-| Spring Boot     | IntelliJ IDEA/Java 11 and 17 |
-| Apache Maven    | PostgreSQL                   |
-| Postman         | testcontainers               |
-| Lucid App       | Duck Duck Go                 |
-| Json Web Tokens | Docker                       |
+|                 |                       |
+|-----------------|:----------------------|
+| Spring Boot     | IntelliJ IDEA/Java 17 |
+| Apache Maven    | PostgreSQL            |
+| Postman         | testcontainers        |
+| Lucid App       | Duck Duck Go          |
+| Json Web Tokens | Docker                |
 
 
 <img alt="Spring-Boot" height="50" src="images/spring-boot-logo.png"/> <img alt="IntelliJ-idea" height="50" src="images/intellij-idea-logo.png"/> <img alt="Java" height="50" src="images/java-logo.png"/> <img alt="PostgreSQL" height="50" src="images/postgresql-logo.png"/> <img alt="Postman" height="50" src="images/postman-logo.png"/> <img alt="testcontainers" height="50" src="images/testcontainers.png"/> <img alt="Lucid charts" height="33" src="images/lucidcharts.png"/> <img alt="Duck Duck Go" height="50" src="images/duckduckgo-logo.png"/> <img alt="JSON" height="50" src="images/json-logo.png"/> <img alt="Docker" height="50" src="images/docker-logo.png"/>
 
+## Installation
 
-
-
-
-
-
-
-
+- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
+- Update application-dev.properties with your username and password.
+- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file into Postman to get all endpoints.
+- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
 
 
 
@@ -85,17 +100,6 @@
 
 
 
-
-## Installation
-
-
-
-- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
-- Update application-dev.properties with your username and password.
-- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file into Postman to get all endpoints.
-- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
-
-
 ## Project Structure
 
 
@@ -116,6 +120,7 @@
 │   ├── spring-boot-logo.png
 │   └── testcontainers.png
 ├── motel_registration.iml
+├── Motel_Registration.postman_collection.json
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
@@ -235,9 +240,7 @@
     │   │               ├── RegistrationHistoryService.class
     │   │               ├── RegistrationService.class
     │   │               └── RoomService.class
-    │   ├── customer.sql
-    │   ├── test-customer-data.sql
-    │   └── test-manager-data.sql
+    │   └── test-customer-data.sql
     ├── generated-sources
     │   └── annotations
     ├── generated-test-sources
@@ -258,4 +261,9 @@
                     ├── RegistrationHistoryRepositoryTest.class
                     ├── RegistrationRepositoryTest.class
                     └── RoomRepositoryTest.class
+
  ```
+
+## Class Diagram
+
+<img alt="Class Diagram" src="images/motel_registration_class_diagram.png"/>
