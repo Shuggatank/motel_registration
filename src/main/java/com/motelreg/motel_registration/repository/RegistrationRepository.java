@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RegistrationRepository extends JpaRepository<Registration, Long> {
 
-    Registration findByCustomerIdNumber(String customerIdNumber);
 
     Registration findByRoomNumber(Long roomNumber);
 

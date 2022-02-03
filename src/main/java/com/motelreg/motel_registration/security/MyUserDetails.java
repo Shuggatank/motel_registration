@@ -30,7 +30,7 @@ public class MyUserDetails implements UserDetails {
         return manager;
     }
 
-
+    // Loads in default values for manager login
     @Override
     public String getPassword() {
         return manager.getPassword();

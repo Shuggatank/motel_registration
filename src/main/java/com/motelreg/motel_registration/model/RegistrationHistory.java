@@ -33,11 +33,11 @@ public class RegistrationHistory {
     private Long roomNumber;
 
     @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy") // Formatting the Date data type for input
     private Date checkInDate;
 
     @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy") // Formatting the Date data type for input
     private Date checkOutDate;
 
     @JsonIgnore
@@ -73,6 +73,7 @@ public class RegistrationHistory {
         this.manager = manager;
     }
 
+    // Constructor for testing
     public RegistrationHistory(Object id, String customerName, String customerIdNumber, String dateOfBirth, String customerAddress, double payment, long roomNumber, int checkInDate, int checkOutDate) {
     }
 

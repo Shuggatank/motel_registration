@@ -16,6 +16,8 @@ public class CustomerRepositoryContainerTest extends BaseContainerTest {
         @Autowired
         private CustomerRepository customerRepository;
 
+
+        //Checks whether the customer saves and loads correctly with PostgreSQL in a Dock container
         @Test
         public void shouldSaveCustomer() {
                 Customer expectedCustomerObject = new Customer(null, "Joe Test", "DPGRES213", "5/4/1962", "124 postgre ave., Fl, 5464");

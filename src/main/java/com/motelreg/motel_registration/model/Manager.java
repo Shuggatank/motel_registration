@@ -19,7 +19,7 @@ public class Manager {
     private String name;
 
     @Column
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // Only writes the password to the database and never displays it to the user
     private String password;
 
 

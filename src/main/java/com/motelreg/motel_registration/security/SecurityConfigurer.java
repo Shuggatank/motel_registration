@@ -31,6 +31,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     private JwtRequestFilter jwtRequestFilter;
 
     @Bean
+    //Using the Bcrypt algorithm to encode the password.
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
@@ -38,7 +39,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
+                        //Permits all the endpoints in the antMatchers
                         "/auth/managers", "/auth/managers/login", "/auth/managers/register", "/api/hello-world/").permitAll()
+                // Any other request needs to authenticated
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -51,6 +54,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    //Get user data for authentication
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);

@@ -16,6 +16,8 @@ public class RegistrationRepositoryContainerTest extends BaseContainerTest {
         @Autowired
         private RegistrationRepository registrationRepository;
 
+
+        //Checks whether the registration saves and loads correctly with PostgreSQL in a Dock container
         @Test
         public void shouldSaveRegistration() {
                 Registration expectedRegistrationObject = new Registration(null, "Joe Tester", "D124KIE", "5/6/1989", "154 Reg Test, Docker", 150.00, 12L, 2/1/2022, 2/5/2022);

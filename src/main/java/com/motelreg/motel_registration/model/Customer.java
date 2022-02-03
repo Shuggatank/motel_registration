@@ -1,6 +1,5 @@
 package com.motelreg.motel_registration.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 

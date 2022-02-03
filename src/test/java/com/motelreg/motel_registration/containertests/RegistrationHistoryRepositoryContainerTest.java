@@ -16,6 +16,8 @@ public class RegistrationHistoryRepositoryContainerTest extends BaseContainerTes
         @Autowired
         private RegistrationHistoryRepository registrationHistoryRepository;
 
+
+        //Checks whether the registration history saves and loads correctly with PostgreSQL in a Dock container
         @Test
         public void shouldSaveRegistrationHistory() {
                 RegistrationHistory expectedRegistrationObject = new RegistrationHistory(null, "Joe Tester", "D124KIE", "5/6/1989", "154 Reg Test, Docker", 150.00, 12L, 2/1/2022, 2/5/2022);

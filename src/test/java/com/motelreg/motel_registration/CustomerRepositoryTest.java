@@ -20,6 +20,7 @@ public class CustomerRepositoryTest {
     @Autowired
     private CustomerRepository customerRepository;
 
+    //Checks whether the customer saves and loads correctly with h2 in-memory database
     @Test
     public void shouldSaveCustomerLocal() {
         Customer customer = new Customer(null, "Test Customer", "D35TEST", "12/12/2022", "421 Test Street");
@@ -27,7 +28,7 @@ public class CustomerRepositoryTest {
         assertThat(savedCustomer).usingRecursiveComparison().ignoringFields("customerId").isEqualTo(customer);
     }
 
-
+    // Testing loading data from a SQL file
     @Test
     @Sql("classpath:test-customer-data.sql")
     public void shouldSaveCustomerDataThroughSqlFile() {

@@ -4,7 +4,7 @@ public class LoginRequest {
 
     private String name;
     private String password;
-
+    //Gets the manager name and password
     public String getName() {
         return name;
     }

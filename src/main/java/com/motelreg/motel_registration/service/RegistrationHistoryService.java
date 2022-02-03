@@ -37,6 +37,7 @@ public class RegistrationHistoryService {
         if(registrationHistory.isPresent()) {
             System.out.println("Matching registration found");
             RegistrationHistory updateRegistration = registrationHistoryRepository.findById(registrationId).get();
+            // If we don't update the field then it returns a null value. We check for the null to make sure it doesn't update to null
             if (registrationHistoryObject.getCustomerName() != null) {
                 updateRegistration.setCustomerName(registrationHistoryObject.getCustomerName());
             }

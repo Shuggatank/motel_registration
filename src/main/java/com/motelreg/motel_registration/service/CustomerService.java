@@ -6,7 +6,6 @@ import com.motelreg.motel_registration.model.Customer;
 import com.motelreg.motel_registration.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,6 +26,7 @@ public class CustomerService {
 
     public Customer createCustomer(Customer customerObject) {
         System.out.println("calling createCustomer");
+        // Finds the customer by CustomerIdNumber because the CustomerIdNumber will be unique
         Customer customer = customerRepository.findByCustomerIdNumber(customerObject.getCustomerIdNumber());
         if (customer != null) {
             throw new InformationExistsException("customer with the id " + customer.getCustomerIdNumber() + " already exists");
@@ -47,6 +47,7 @@ public class CustomerService {
     public Customer updateCustomer(Long customerId, Customer customerObject) {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent()) {
+                // Stores the information in a new Customer object
                 Customer updateCustomer = customerRepository.findById(customerId).get();
                 updateCustomer.setCustomerName(customerObject.getCustomerName());
                 updateCustomer.setCustomerIdNumber(customerObject.getCustomerIdNumber());
@@ -62,6 +63,7 @@ public class CustomerService {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent()) {
             Customer updateCustomer = customerRepository.findById(customerId).get();
+            // If we don't update the field then it returns a null value. We check for the null to make sure it doesn't update to null
             if (customerObject.getCustomerName() != null) {
                 updateCustomer.setCustomerName(customerObject.getCustomerName());
             }

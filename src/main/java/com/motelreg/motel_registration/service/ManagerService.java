@@ -41,6 +41,7 @@ public class ManagerService {
     public Manager createManager(Manager managerObject) {
         System.out.println("service calling createManager ===>");
         if (!managerRepository.existsByName(managerObject.getName())) {
+            // Encodes the password that the manager sets
             managerObject.setPassword(passwordEncoder.encode(managerObject.getPassword()));
             return managerRepository.save(managerObject);
         } else {
@@ -55,9 +56,11 @@ public class ManagerService {
 
     public ResponseEntity<?> loginManager(LoginRequest loginRequest) {
         System.out.println("service calling loginManager ==>");
+        // Authenticates the username and password
         authenticationManager.authenticate(new
                 UsernamePasswordAuthenticationToken(loginRequest.getName(), loginRequest.getPassword()));
         final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getName());
+        // Generates a token for the manager login
         final String JWT = jwtUtils.generateToken(userDetails);
         return ResponseEntity.ok(new LoginResponse(JWT));
     }

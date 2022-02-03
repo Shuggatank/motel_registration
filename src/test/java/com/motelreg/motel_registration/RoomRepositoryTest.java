@@ -16,6 +16,7 @@ public class RoomRepositoryTest {
     @Autowired
     private RoomRepository roomRepository;
 
+    //Checks whether the room saves and loads correctly with h2 in-memory database
     @Test
     public void shouldSaveRoomLocal() {
         Room room = new Room(null, 4L, 2L, 55.00, true, true );

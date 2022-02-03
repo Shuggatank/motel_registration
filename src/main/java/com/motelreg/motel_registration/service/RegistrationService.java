@@ -57,13 +57,16 @@ public class RegistrationService {
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
         Registration registration = registrationRepository.findByRoomNumber(registrationObject.getRoomNumber());
+        // Finding the room number from the room repository
         Room roomId = roomRepository.findByRoomNumber(registrationObject.getRoomNumber());
         System.out.println(roomId);
         if(roomId != null) {
             if (registration != null) {
                 throw new InformationExistsException("Registration with room number " + registration.getRoomNumber() + " already exists");
             } else {
+                // Checks if the room is clean and empty. If either one is false then it is unrentable
                 if (roomId.isClean() && roomId.isEmpty()) {
+                    // Logic to save the customer to customer table if customer id doesn't already exist.
                     Customer customer = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
                     if (customer == null) {
                         Customer newCustomer = new Customer();
@@ -75,13 +78,16 @@ public class RegistrationService {
                     }
                     Customer customerId = customerRepository.findByCustomerIdNumber(registrationObject.getCustomerIdNumber());
                     Room notEmpty = new Room();
+                    // Sets the room that is being rented to not empty and not clean.
                     notEmpty.setClean(false);
                     notEmpty.setEmpty(false);
+                    // Send the data to the room service method to get processed
                     RoomService.updatePartsOfRoom(roomId.getId(), notEmpty);
+                    // Setting the foreign keys
                     registrationObject.setCustomer(customerId);
                     registrationObject.setManager(userDetails.getManager());
                     registrationObject.setRoom(roomId);
-
+                    // Saving the registration data to the registration history table
                     RegistrationHistory saveHistory = new RegistrationHistory();
                     saveHistory.setCustomerName(registrationObject.getCustomerName());
                     saveHistory.setCustomerIdNumber(registrationObject.getCustomerIdNumber());
@@ -119,6 +125,8 @@ public class RegistrationService {
     public Registration updateRegistration(Long room, Registration registrationObject) {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
+            //Checks whether the room number you're trying to edit matches the room number in your input matches.
+            // The reason for this is we don't want to change a room to another number. For example if we're editing room 11 we don't want to be able to change it to 12
             if (Objects.equals(registrationObject.getRoomNumber(), registration.getRoomNumber())){
                 System.out.println("Matching room number found");
                 registration.setCustomerName(registrationObject.getCustomerName());
@@ -131,7 +139,7 @@ public class RegistrationService {
                 registration.setCheckOutDate(registrationObject.getCheckOutDate());
                 return registrationRepository.save(registration);
             } else {
-                throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " has no registration");
+                throw new InformationNotFoundException("Room number " + registration.getRoomNumber() + " does not match your input of " + registrationObject.getRoomNumber());
             }
         }else{
             throw new InformationNotFoundException("Room number " + room + " has no registration");
@@ -142,6 +150,7 @@ public class RegistrationService {
         Registration registration = registrationRepository.findByRoomNumber(room);
         if (registration !=null) {
             System.out.println("Matching room number found");
+            // If we don't update the field then it returns a null value. We check for the null to make sure it doesn't update to null
             if (registrationObject.getCustomerName() != null) {
                 registration.setCustomerName(registrationObject.getCustomerName());
             }

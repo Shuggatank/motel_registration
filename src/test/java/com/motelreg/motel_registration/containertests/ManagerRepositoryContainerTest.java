@@ -16,6 +16,8 @@ public class ManagerRepositoryContainerTest extends BaseContainerTest {
         @Autowired
         private ManagerRepository managerRepository;
 
+
+        //Checks whether the manager saves and loads correctly with PostgreSQL in a Dock container
         @Test
         public void shouldSaveManager() {
                 Manager expectedManagerObject = new Manager(null, "ManagerTest", "TestPass");

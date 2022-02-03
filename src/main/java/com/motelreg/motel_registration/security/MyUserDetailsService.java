@@ -20,6 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 
     @Override
+    // Finds the manager by name
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         Manager manager = managerService.findManagerByName(name);
         return new MyUserDetails(manager);
