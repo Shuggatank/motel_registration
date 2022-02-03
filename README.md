@@ -4,7 +4,7 @@
 ## Table of Contents
 * [User Stories](#User Stories)
 * [Entity Relationship Diagram (ERD)](#Entity Relationship Diagram (ERD))
-* [Tools Used](#System Tools Used)
+* [Tools Used](#Tools Used)
 * [API Endpoints](#Endpoints)
 * [Installation](#Installation)
 * [Project File Structure](#Project Structure)
@@ -12,7 +12,11 @@
 
 
 This project involved using IntellJ to develop a REST API for a motel/hotel registration database.
-The API allows managers to check in customers into the system. The manager has full control over registration, customer records, and room records.
+The API allows managers to check in customers into the system. The manager has full control over registration, customer records, and room records. 
+The system is secure using spring security and JSON Web Token for authentication of the manager. 
+
+When a registration is made for a new customer, the customer data is transferred to the customer records and the room is switched to occupied. 
+As a manager you can make updates to each record as needed. The registration also has a few checks in place to make sure an occupied or unready room isn't rented.
 
 
 
@@ -36,6 +40,32 @@ The API allows managers to check in customers into the system. The manager has f
    - [ ] As an admin I would like to view system reports and logs
 
 
+## Tools Used
+
+|                                                                                                       |                 |
+|-------------------------------------------------------------------------------------------------------|-----------------|
+| <p align="center"><img alt="Spring-Boot logo" height="50" src="images/spring-boot-logo.png"/> </p>    | Spring Boot     |
+| <p align="center"><img alt="IntelliJ-idea logo" height="50" src="images/intellij-idea-logo.png"/></p> | IntelliJ IDEA   |
+| <p align="center"><img alt="Java logo" height="50" src="images/java-logo.png"/></p>                   | Java            |
+| <p align="center"><img alt="Maven logo" height="35" src="images/apache-maven.png"/></p>               | Apache Maven    |
+| <p align="center"><img alt="PostgreSQL" height="65" src="images/postgresql-logo.png"/> </p>           | PostgreSQL      |
+| <p align="center"><img alt="Postman" height="50" src="images/postman-logo.png"/></p>                  | Postman         |
+| <p align="center"><img alt="testcontainers" height="50" src="images/testcontainers.png"/> </p>        | testcontainers  |
+| <p align="center"> <img alt="Lucid charts" height="33" src="images/lucidcharts.png"/></p>             | Lucidcharts     |
+| <p align="center"><img alt="JSON" height="50" src="images/jwt_logo.jpg"/></p>                         | Json Web Tokens |
+| <p align="center"><img alt="Docker" height="50" src="images/docker-logo.png"/></p>                    | Docker          |
+
+
+
+## Installation
+
+- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
+- Update application-dev.properties with your username and password.
+- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file that is in the repo into Postman to get all endpoints.
+- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
+
+
+
 ## Entity Relationship Diagram (ERD)
 
 
@@ -45,26 +75,6 @@ The API allows managers to check in customers into the system. The manager has f
 ### Project ERD
 
 <img alt="IntellJ ERD Diagram" width="65%" src="images/entityManagerFactory(EntityManagerFactoryBuilder).png"/>
-
-## System Tools Used
-
-|                 |                       |
-|-----------------|:----------------------|
-| Spring Boot     | IntelliJ IDEA/Java 17 |
-| Apache Maven    | PostgreSQL            |
-| Postman         | testcontainers        |
-| Lucid App       | Duck Duck Go          |
-| Json Web Tokens | Docker                |
-
-
-<img alt="Spring-Boot" height="50" src="images/spring-boot-logo.png"/> <img alt="IntelliJ-idea" height="50" src="images/intellij-idea-logo.png"/> <img alt="Java" height="50" src="images/java-logo.png"/> <img alt="PostgreSQL" height="50" src="images/postgresql-logo.png"/> <img alt="Postman" height="50" src="images/postman-logo.png"/> <img alt="testcontainers" height="50" src="images/testcontainers.png"/> <img alt="Lucid charts" height="33" src="images/lucidcharts.png"/> <img alt="Duck Duck Go" height="50" src="images/duckduckgo-logo.png"/> <img alt="JSON" height="50" src="images/json-logo.png"/> <img alt="Docker" height="50" src="images/docker-logo.png"/>
-
-## Installation
-
-- Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
-- Update application-dev.properties with your username and password.
-- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file into Postman to get all endpoints.
-- For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
 
 
 
