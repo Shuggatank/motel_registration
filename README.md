@@ -6,6 +6,7 @@
 * [User Stories](#User-Stories)
 * [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram-(ERD))
 * [Installation](#Installation)
+* [POM Dependencies](#POM-Dependencies)
 * [Tools Used](#Tools-Used)
 * [API Endpoints](#Endpoints)
 * [Project File Structure](#Project-Structure)
@@ -43,7 +44,12 @@ I got Docker set up and Postgres installed and got the testing running. After I 
 test whether they were writing to the database and receiving back the same data.
 
 
+### Unsolved Problems or Major Hurdles
 
+One of the major hurdles I faced was implementing the PATCH functionality. I tried to replicate the PUT method, but it was putting null values 
+in any field that wasn't filled. I did some research but there wasn't many examples of PATCH and the ones that were there were using other dependencies
+such as JSON Patch, which I didn't want to do because I knew Spring had PATCH implemented already. After some trying I found a way to get PATCH working
+using if statements that check for null values in the request body. If a null is present then that field isn't updated. 
 
 
 
@@ -91,6 +97,58 @@ test whether they were writing to the database and receiving back the same data.
 - For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
 
 
+## POM Dependencies
+```
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.16.3</version>
+            <scope>test</scope>
+        </dependency>
+         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>1.16.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>1.16.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+ ```
 
 ## Entity Relationship Diagram (ERD)
 
