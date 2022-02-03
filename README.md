@@ -3,11 +3,11 @@
 
 ## Table of Contents
 * [User Stories](#User%20Stories)
-* [Entity Relationship Diagram (ERD)](#Entity Relationship Diagram (ERD))
+* [Entity Relationship Diagram (ERD)](#Entity%20Relationship%20Diagram%20(ERD))
 * [Installation](#Installation)
-* [Tools Used](#Tools Used)
+* [Tools Used](#Tools%20Used)
 * [API Endpoints](#Endpoints)
-* [Project File Structure](#Project Structure)
+* [Project File Structure](#Project%20Structure)
 
 
 
