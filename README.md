@@ -2,10 +2,10 @@
 <h3 align="center"> A simple api for registering guest created with SpringBoot, PostgreSQL, and Java.</h3>
 
 ## Table of Contents
-* [User Stories](#User%20Stories)
-* [Entity Relationship Diagram (ERD)](#Entity%20Relationship%20Diagram%20(ERD))
+* [User Stories](#User-Stories)
+* [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram-(ERD))
 * [Installation](#Installation)
-* [Tools Used](#Tools%20Used)
+* [Tools Used](#Tools-Used)
 * [API Endpoints](#Endpoints)
 * [Project File Structure](#Project-Structure)
 
