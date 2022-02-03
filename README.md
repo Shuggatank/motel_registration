@@ -1,5 +1,6 @@
 <h1 align="center"> Motel Registration API</h1>
 <h3 align="center"> A simple api for registering guest created with SpringBoot, PostgreSQL, and Java.</h3>
+<p align="center"><img alt="Spring-Boot logo" height="80%" src="images/reception.jpg"/> </p> 
 
 ## Table of Contents
 * [User Stories](#User-Stories)
@@ -8,6 +9,7 @@
 * [Tools Used](#Tools-Used)
 * [API Endpoints](#Endpoints)
 * [Project File Structure](#Project-Structure)
+* [Project Class Diagram](#Class-Diagram)
 
 
 
@@ -17,6 +19,30 @@ The system is secure using spring security and JSON Web Token for authentication
 
 When a registration is made for a new customer, the customer data is transferred to the customer records and the room is switched to occupied. 
 As a manager you can make updates to each record as needed. The registration also has a few checks in place to make sure an occupied or unready room isn't rented.
+
+
+### The Approach
+I first started think form my own experience and imagining what I would like to see and what other managers would like to see in a registration application.
+I made a list of user stories on features a manager would like to have in a registration application. I expanded the user stories from just the manager to also include an administrator and included stories of features an administrator might want.
+
+Next I thought about the registration process and how it might look like, from that I came up with an initial entity relationship diagram showing how all the table would work together.
+From the initial diagram I scaled back the scope of the project to just include the core components to start with. These components included the manager, the registration, the customer, and the room.
+
+During the development of the registration application I kept referring to the user stories and the ERD to make sure I was staying on track and covering all the requirements.
+I first started with making all the models for the entities in the project, then I made a service and controller for each on and tested each endpoint to verify it was working correctly.
+
+After I had built out each entity with service and controller, I started on enabling Spring Boot security. I loaded in the necessary dependencies and started creating the classes that would be the logic of the security.
+After testing the secured endpoints and the allowed endpoints I started with enabling JWT Web Tokens. After adding the dependencies in pom.xml I started
+creating the classes required for enabling JWT Web Tokens. 
+
+After I verified that the tokens were fully working I went back and started refining the logic for each endpoint and checking the functions and error handling. As I went through each method I added some functionality to some of them.
+I also started trying to implement a PATCH request, which took some research and trial-and-error process to get working correctly. 
+
+The core functionality was complete, so I started unit testing. I did some research and started implementing localized testing using h2 in-memory database. I also came across a way to do testing using containers, so 
+I got Docker set up and Postgres installed and got the testing running. After I verified the in-memory and container databases were working I started creating tests for the other repositories to 
+test whether they were writing to the database and receiving back the same data.
+
+
 
 
 
