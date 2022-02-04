@@ -19,10 +19,6 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/hello-world/")
-    public String getHelloWorld () {
-        return "Hello World";
-    }
 
     @GetMapping("/customers")
     public List<Customer> getAllCustomers() {
