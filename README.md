@@ -54,6 +54,12 @@ in any field that wasn't filled. I did some research but there wasn't many examp
 such as JSON Patch, which I didn't want to do because I knew Spring had PATCH implemented already. After some trying I found a way to get PATCH working
 using if statements that check for null values in the request body. If a null is present then that field isn't updated. 
 
+### Todo
+
+- Add an administrator role and move functions like create manager, create rooms, delete rooms, etc. to this role.
+- Add customer history and comments/notes table
+- Add payment type to registration
+
 
 
 ## User Stories
