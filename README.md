@@ -8,8 +8,10 @@
 * [Installation](#Installation)
 * [POM Dependencies](#POM-Dependencies)
 * [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram)
+* [Model View Controller System Design](#Model-View-Controller-System-Design)
 * [API Endpoints](#Endpoints)
 * [Database Layout](#Database-Layout)
+* [Sample of Output](#Sample-of-Output)
 * [Project File Structure](#Project-Structure)
 * [Project Class Diagram](#Class-Diagram)
 
@@ -96,6 +98,7 @@ using if statements that check for null values in the request body. If a null is
 - Update application-dev.properties with your username and password.
 - To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file that is in the repo into Postman to get all endpoints.
 - For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
+- For container update BaseContainerTest.java with the PostgreSQL username and password you set on installation.
 
 
 ## POM Dependencies
@@ -164,6 +167,17 @@ using if statements that check for null values in the request body. If a null is
 
 <img alt="IntellJ ERD Diagram" width="65%" src="images/entityManagerFactory(EntityManagerFactoryBuilder).png"/>
 
+## Model View Controller System Design
+
+This project uses MVC design principles. It consists of model, view, and controller classes to help with "separation of concerns". This project consists of:
+
+- 7 Model Classes
+- 5 Controller Classes
+- 7 Service Classes
+- 5 Repository Interfaces
+- 22 API endpoints
+  - 2 public
+  - 20 with authorization
 
 
 ## Endpoints
@@ -200,6 +214,45 @@ using if statements that check for null values in the request body. If a null is
 
 ![DataBaseLayout](images/motel_records.png)
 
+## Sample of Output
+
+```
+[
+    {
+        "id": 1,
+        "customerName": "Daniel M. Barrett",
+        "customerIdNumber": "282235201",
+        "dateOfBirth": "3/5/1977",
+        "customerAddress": "6 N Pleasantburg Dr, Greenville, SC 29608, USA",
+        "payment": 105.15,
+        "roomNumber": 5,
+        "checkInDate": "02/03/2022",
+        "checkOutDate": "02/05/2022"
+    },
+    {
+        "id": 2,
+        "customerName": "Test Eleven Smith",
+        "customerIdNumber": "J5adafGF",
+        "dateOfBirth": "12/15/1972",
+        "customerAddress": "1235 Main Street, Jonson, Tx, 56354",
+        "payment": 160.25,
+        "roomNumber": 11,
+        "checkInDate": "01/30/2022",
+        "checkOutDate": "02/03/2022"
+    },
+    {
+        "id": 3,
+        "customerName": "Ricardo Barnes",
+        "customerIdNumber": "B-652-572-220-245",
+        "dateOfBirth": "12/28/1999",
+        "customerAddress": "128 Central Avenue, Capitol Heights, MD 20743, USA",
+        "payment": 75.0,
+        "roomNumber": 2,
+        "checkInDate": "02/03/2022",
+        "checkOutDate": "02/13/2022"
+    }
+]
+```
 ## Project Structure
 
 
