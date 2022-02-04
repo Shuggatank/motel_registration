@@ -4,7 +4,7 @@
 
 ## Table of Contents
 * [User Stories](#User-Stories)
-* [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram-(ERD))
+* [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram)
 * [Installation](#Installation)
 * [POM Dependencies](#POM-Dependencies)
 * [Tools Used](#Tools-Used)
@@ -74,18 +74,18 @@ using if statements that check for null values in the request body. If a null is
 
 ## Tools Used
 
-|                                                                                                       |                 |
-|-------------------------------------------------------------------------------------------------------|-----------------|
-| <p align="center"><img alt="Spring-Boot logo" height="50" src="images/spring-boot-logo.png"/> </p>    | Spring Boot     |
-| <p align="center"><img alt="IntelliJ-idea logo" height="50" src="images/intellij-idea-logo.png"/></p> | IntelliJ IDEA   |
-| <p align="center"><img alt="Java logo" height="50" src="images/java-logo.png"/></p>                   | Java            |
-| <p align="center"><img alt="Maven logo" height="35" src="images/apache-maven.png"/></p>               | Apache Maven    |
-| <p align="center"><img alt="PostgreSQL" height="65" src="images/postgresql-logo.png"/> </p>           | PostgreSQL      |
-| <p align="center"><img alt="Postman" height="50" src="images/postman-logo.png"/></p>                  | Postman         |
-| <p align="center"><img alt="testcontainers" height="50" src="images/testcontainers.png"/> </p>        | testcontainers  |
-| <p align="center"> <img alt="Lucid charts" height="33" src="images/lucidcharts.png"/></p>             | Lucidcharts     |
-| <p align="center"><img alt="JSON" height="50" src="images/jwt_logo.jpg"/></p>                         | Json Web Tokens |
-| <p align="center"><img alt="Docker" height="50" src="images/docker-logo.png"/></p>                    | Docker          |
+|                                                                                 |                 |
+|:-------------------------------------------------------------------------------:|:---------------:|
+|   <img alt="Spring-Boot logo" height="50" src="images/spring-boot-logo.png"/>   |   Spring Boot   |
+| <img alt="IntelliJ-idea logo" height="50" src="images/intellij-idea-logo.png"/> |  IntelliJ IDEA  |
+|          <img alt="Java logo" height="50" src="images/java-logo.png"/>          |      Java       |
+|        <img alt="Maven logo" height="35" src="images/apache-maven.png"/>        |  Apache Maven   |
+|      <img alt="PostgreSQL" height="65" src="images/postgresql-logo.png"/>       |   PostgreSQL    |
+|         <img alt="Postman" height="50" src="images/postman-logo.png"/>          |     Postman     |
+|     <img alt="testcontainers" height="50" src="images/testcontainers.png"/>     | testcontainers  |
+|       <img alt="Lucid charts" height="33" src="images/lucidcharts.png"/>        |   Lucidcharts   |
+|             <img alt="JSON" height="50" src="images/jwt_logo.jpg"/>             | Json Web Tokens |
+|          <img alt="Docker" height="50" src="images/docker-logo.png"/>           |     Docker      |
 
 
 
@@ -150,7 +150,7 @@ using if statements that check for null values in the request body. If a null is
         </dependency>
  ```
 
-## Entity Relationship Diagram (ERD)
+## Entity Relationship Diagram
 
 
 ### Initial ERD

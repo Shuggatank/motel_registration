@@ -20,7 +20,7 @@ public class RoomRepositoryContainerTest extends BaseContainerTest {
         //Checks whether the room saves and loads correctly with PostgreSQL in a Dock container
         @Test
         public void shouldSaveRoom() {
-                Room expectedRoomObject = new Room( null, 1L, 100.00, true, true);
+                Room expectedRoomObject = new Room( null, 2L, 1L, 100.00, true, true);
                 Room actualRoomObject = roomRepository.save(expectedRoomObject);
                 assertThat(actualRoomObject).usingRecursiveComparison().ignoringFields("id").isEqualTo(expectedRoomObject);
         }
