@@ -55,11 +55,10 @@ such as JSON Patch, which I didn't want to do because I knew Spring had PATCH im
 using if statements that check for null values in the request body. If a null is present then that field isn't updated. 
 
 ### Todo
-
-- Add an administrator role and move functions like create manager, create rooms, delete rooms, etc. to this role.
-- Add customer history and comments/notes table
-- Add payment type to registration
-- Add more integration and unit testing
+- [ ] Add an administrator role and move functions like create manager, create rooms, delete rooms, etc. to this role.
+- [ ] Add customer history and comments/notes table
+- [ ] Add payment type to registration
+- [ ] Add more integration and unit testing
 
 
 
