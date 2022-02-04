@@ -109,7 +109,7 @@ using if statements that check for null values in the request body. If a null is
 
 
 ## POM Dependencies
-```
+```xml
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -223,7 +223,7 @@ This project uses MVC design principles. It consists of model, view, and control
 
 ## Sample of Output
 
-```
+```json
 [
     {
         "id": 1,
