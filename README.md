@@ -4,11 +4,12 @@
 
 ## Table of Contents
 * [User Stories](#User-Stories)
-* [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram)
+* [Tools Used](#Tools-Used)
 * [Installation](#Installation)
 * [POM Dependencies](#POM-Dependencies)
-* [Tools Used](#Tools-Used)
+* [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram)
 * [API Endpoints](#Endpoints)
+* [Database Layout](#Database-Layout)
 * [Project File Structure](#Project-Structure)
 * [Project Class Diagram](#Class-Diagram)
 
@@ -154,9 +155,12 @@ using if statements that check for null values in the request body. If a null is
 
 
 ### Initial ERD
-<img alt="Original ERD Diagram" width="65%" src="images/ERD - Page 1.png"/>
+
+![Initial ERD](images/ERD%20-%20Page%201.png)
 
 ### Project ERD
+
+![Reworked ERD](images/ERD%20-%20Page%202.png)
 
 <img alt="IntellJ ERD Diagram" width="65%" src="images/entityManagerFactory(EntityManagerFactoryBuilder).png"/>
 
@@ -192,7 +196,9 @@ using if statements that check for null values in the request body. If a null is
 | PATCH        | /api/registration_history/{registrationId} | customerName, customerIdNumber, dateOfBirth, customerAddress, payment, roomNumber, checkInDate, checkOutDate | Authorization Bearer TOKEN |
 
 
+## Database Layout
 
+![DataBaseLayout](images/motel_records.png)
 
 ## Project Structure
 
@@ -361,3 +367,4 @@ using if statements that check for null values in the request body. If a null is
 ## Class Diagram
 
 <img alt="Class Diagram" src="images/motel_registration_class_diagram.png"/>
+
