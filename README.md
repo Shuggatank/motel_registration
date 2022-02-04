@@ -104,7 +104,7 @@ using if statements that check for null values in the request body. If a null is
 - Update application-dev.properties with your username and password.
 - To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file that is in the repo into Postman to get all endpoints.
 - For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
-- For container update BaseContainerTest.java with the PostgreSQL username and password you set on installation.
+- For container testing, update BaseContainerTest.java with the PostgreSQL username and password you set on installation.
 
 
 ## POM Dependencies
