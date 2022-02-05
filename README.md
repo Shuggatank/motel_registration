@@ -102,7 +102,7 @@ using if statements that check for null values in the request body. If a null is
 
 - Install [PostgreSQL](https://www.postgresql.org/download/). Using the localhost with port 5432, create a database named motel_records.
 - Update application-dev.properties with your username and password.
-- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file that is in the repo into Postman to get all endpoints.
+- To test endpoints use [Postman](https://www.postman.com/). You may import the Motel_Registration.postman_collection.json file that is in the repo into Postman to get all endpoints. [Token Setup Guide](https://i.imgur.com/HEvAKN1.png)
 - For container testing, install [Docker](https://docs.docker.com/engine/install/). After docker is installed, you need to install the [Postgres docker image](https://hub.docker.com/_/postgres/).
 - For container testing, update BaseContainerTest.java with the PostgreSQL username and password you set on installation.
 
